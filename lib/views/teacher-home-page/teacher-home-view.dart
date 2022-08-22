@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:kuttab/views/teacher-home-page/widgets.dart';
 
@@ -33,7 +35,13 @@ class _TeacherHomepageState extends State<TeacherHomepage> {
         ),
         child: SingleChildScrollView(
           child: Column(
-            children: [],
+            children: const [
+              SizedBox(height: 50),
+              TopBar(
+                imgPath: "assets/images/personal-pic.png",
+                haveNotification: true,
+              ),
+            ],
           ),
         ),
       ),
