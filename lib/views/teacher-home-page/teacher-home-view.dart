@@ -16,7 +16,7 @@ class _TeacherHomepageState extends State<TeacherHomepage> {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
-        height: 200,
+        height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -28,7 +28,7 @@ class _TeacherHomepageState extends State<TeacherHomepage> {
           ),
           image: DecorationImage(
             image: AssetImage('assets/images/decoration-gradiant.png'),
-            fit: BoxFit.cover,
+            fit: BoxFit.fitWidth,
             alignment: Alignment.topCenter,
             opacity: 1,
           ),
@@ -40,6 +40,11 @@ class _TeacherHomepageState extends State<TeacherHomepage> {
               TopBar(
                 imgPath: "assets/images/personal-pic.png",
                 haveNotification: true,
+              ),
+              TeacherHomeHeader(
+                imgPath: "assets/images/Mosque-logo.png",
+                schoolName: "مركز الفاروق لتحفيظ القرآن الكريم",
+                schoolAddress: "غزة - النصر - مسجد الفاروق",
               ),
             ],
           ),
