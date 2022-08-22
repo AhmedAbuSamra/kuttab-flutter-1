@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/login-page/login-view.dart';
 import 'package:kuttab/views/teacher-home-page/teacher-home-view.dart';
 import 'package:provider/provider.dart';
@@ -37,18 +38,7 @@ class MyApp extends StatelessWidget {
       ],
       title: 'Wattan',
       theme: ThemeData(
-        primarySwatch: const MaterialColor(0xFFFFFFFF, {
-          50: Color(0xFFFFFFFF),
-          100: Color(0xFFFFFFFF),
-          200: Color(0xFFFFFFFF),
-          300: Color(0xFFFFFFFF),
-          400: Color(0xFFFFFFFF),
-          500: Color(0xFFFFFFFF),
-          600: Color(0xFFFFFFFF),
-          700: Color(0xFFFFFFFF),
-          800: Color(0xFFFFFFFF),
-          900: Color(0xFFFFFFFF),
-        }),
+        primarySwatch: WHITE_COLOR_MATERIAL,
       ),
     );
   }
