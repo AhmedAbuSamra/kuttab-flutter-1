@@ -38,6 +38,7 @@ class _TeacherHomepageState extends State<TeacherHomepage> {
                 schoolName: "مركز الفاروق لتحفيظ القرآن الكريم",
                 schoolAddress: "غزة - النصر - مسجد الفاروق",
               ),
+              TeacherHomeBody(),
             ],
           ),
         ),
