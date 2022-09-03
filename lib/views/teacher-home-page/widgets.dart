@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:kuttab/Utils/constants.dart';
+import 'package:kuttab/views/componant/app-buttons.dart';
 import 'package:kuttab/views/componant/app-text.dart';
+import 'package:kuttab/views/componant/search-field.dart';
 
 class TopBar extends StatefulWidget {
   const TopBar(
@@ -224,6 +226,258 @@ class _TeacherHomeHeaderState extends State<TeacherHomeHeader> {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class TeacherHomeBody extends StatefulWidget {
+  const TeacherHomeBody({Key? key}) : super(key: key);
+
+  @override
+  State<TeacherHomeBody> createState() => _TeacherHomeBodyState();
+}
+
+class _TeacherHomeBodyState extends State<TeacherHomeBody> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          const SizedBox(height: 24),
+          //row for buttons (record attendance, absence permission)
+          Row(
+            children: [
+              SizedBox(
+                height: 48,
+                width: (MediaQuery.of(context).size.width - 40) * 0.55,
+                child: WhiteIconButtton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.add),
+                  text: "تسجيل حضور",
+                ),
+              ),
+              const SizedBox(width: 8),
+              SizedBox(
+                height: 48,
+                width: (MediaQuery.of(context).size.width - 40) * 0.45,
+                child: WhiteIconButtton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.add),
+                  text: "إذن غياب",
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 32),
+          //row for student and Search
+          Row(
+            children: [
+              const AppText(
+                text: "الطلاب",
+                color: Colors.black,
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+              Expanded(child: Container()),
+              SizedBox(
+                height: 40,
+                width: (MediaQuery.of(context).size.width - 40) * 0.18,
+                child: FullColorIconButtton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.add),
+                ),
+              ),
+              const SizedBox(width: 8),
+              SearchField(),
+            ],
+          ),
+          const SizedBox(height: 16),
+          // date container
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 24,
+            decoration: BoxDecoration(
+              color: PRIMARY_COLOR.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 15,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: PRIMARY_COLOR,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Icon(
+                    size: 10,
+                    Icons.calendar_today,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                const AppText(
+                  text: "الأحد  ",
+                  color: PRIMARY_COLOR,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+                const AppText(
+                  text: "2021/10/10",
+                  color: PRIMARY_COLOR,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          // list of students
+          const StudentCard(
+            name: "محمد عبد الله",
+            status: "Present",
+            performance: "الحاقة 1 - الحاقة 20",
+            imgPath: "assets/images/kid1.jpg",
+            rate: 4,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//create a class for the student card
+class StudentCard extends StatefulWidget {
+  final String name, imgPath, status;
+  final String? performance;
+  final int? rate;
+  const StudentCard(
+      {Key? key,
+      required this.name,
+      required this.imgPath,
+      this.performance,
+      required this.status,
+      this.rate})
+      : super(key: key);
+
+  @override
+  State<StudentCard> createState() => _StudentCardState();
+}
+
+class _StudentCardState extends State<StudentCard> {
+  @override
+  Widget build(BuildContext context) {
+    Map<String, Color> colors = {
+      "Present": PRESENT,
+      "NoReciet": NO_RECIET,
+      "Absent": ABSENT,
+    };
+    Map<String, String> performances = {
+      "Present": "حفظ : ",
+      "NoReciet": "لم يسمع",
+      "Absent": "غائب",
+    };
+    return Container(
+      height: 96,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(24),
+      ),
+      padding: EdgeInsets.all(16),
+      child: Row(
+        children: [
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: colors[widget.status] ?? Colors.white, width: 2),
+              borderRadius: BorderRadius.circular(24),
+              image: DecorationImage(
+                image: AssetImage(widget.imgPath),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                //row for name and rate
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: Row(
+                    children: [
+                      AppText(
+                        text: widget.name,
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      Expanded(child: Container()),
+                      widget.rate != null
+                          ? Container(
+                              height: 18,
+                              width: 34,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  AppText(
+                                    text: widget.rate.toString(),
+                                    color: RATE_STAR,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Icon(
+                                    Icons.star,
+                                    color: RATE_STAR,
+                                    size: 12,
+                                  ),
+                                ],
+                              ),
+                            )
+                          : Container(),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+                //row for status and performance
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: Row(
+                    children: [
+                      AppText(
+                        text: performances[widget.status] ?? " ",
+                        color: colors[widget.status] ?? Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      widget.status == "Present"
+                          ? AppText(
+                              text: widget.performance,
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            )
+                          : Container(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
