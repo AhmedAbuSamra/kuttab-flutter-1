@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 const Color PRIMARY_COLOR = Color(0xFF2CBC67);
 const Color SECONDARY_COLOR = Color(0xFF0B0B0B);
 const Color PRIMARY_DARK_COLOR = Color(0xFF103E1C);
+const Color BUTTON_COLOR = Color(0xFF2DBB66);
 
 const MaterialColor PRIMARY_COLOR_MATERIAL = MaterialColor(0xFF2CBC67, {
   50: Color(0xFF2CBC67),
