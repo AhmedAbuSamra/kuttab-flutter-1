@@ -9,6 +9,7 @@ const Color BUTTON_COLOR = Color(0xFF2DBB66);
 const Color PRESENT = Color(0xFF2CBC67);
 const Color NO_RECIET = Color(0xFFF39C12);
 const Color ABSENT = Color(0xFFE74C3C);
+const Color RATE_STAR = Color(0xFFF39C12);
 
 const MaterialColor PRIMARY_COLOR_MATERIAL = MaterialColor(0xFF2CBC67, {
   50: Color(0xFF2CBC67),
