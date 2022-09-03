@@ -345,6 +345,24 @@ class _TeacherHomeBodyState extends State<TeacherHomeBody> {
             imgPath: "assets/images/kid1.jpg",
             rate: 4,
           ),
+          const SizedBox(height: 16),
+          // list of students
+          const StudentCard(
+            name: "أحمد محمد ",
+            status: "NoReciet",
+            performance: "الحاقة 1 - الحاقة 20",
+            imgPath: "assets/images/kid2.jpg",
+            rate: 4,
+          ),
+          const SizedBox(height: 16),
+          // list of students
+          const StudentCard(
+            name: "محمد أحمد",
+            status: "Absent",
+            performance: "الحاقة 1 - الحاقة 20",
+            imgPath: "assets/images/kid3.jpg",
+            rate: 4,
+          ),
         ],
       ),
     );
