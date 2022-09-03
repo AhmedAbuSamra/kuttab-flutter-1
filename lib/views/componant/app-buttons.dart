@@ -82,3 +82,61 @@ class WhiteButtton extends StatelessWidget {
     );
   }
 }
+
+class WhiteIconButtton extends StatelessWidget {
+  final Function() _onPressed;
+  final String _text;
+  final Icon _icon;
+  final bool? _bordered;
+  const WhiteIconButtton(
+      {Key? key,
+      required Function() onPressed,
+      required Icon icon,
+      required String text,
+      bool? bordered})
+      : _onPressed = onPressed,
+        _text = text,
+        _icon = icon,
+        _bordered = bordered,
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 50.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0.0,
+          shadowColor: Colors.transparent,
+          primary: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50.0),
+            side: (_bordered == false)
+                ? (const BorderSide(color: Colors.white))
+                : (const BorderSide(color: BUTTON_COLOR)),
+          ),
+        ),
+        onPressed: _onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              _icon.icon,
+              color: BUTTON_COLOR,
+            ),
+            AppText(
+              text: _text,
+              color: BUTTON_COLOR,
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
