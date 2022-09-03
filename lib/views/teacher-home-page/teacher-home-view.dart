@@ -18,14 +18,6 @@ class _TeacherHomepageState extends State<TeacherHomepage> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF4F946B),
-              Color(0xFF4F946B),
-            ],
-          ),
           image: DecorationImage(
             image: AssetImage('assets/images/decoration-gradiant.png'),
             fit: BoxFit.fitWidth,
