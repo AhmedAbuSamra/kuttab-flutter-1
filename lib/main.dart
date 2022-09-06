@@ -6,6 +6,7 @@ import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/login-page/login-view.dart';
 import 'package:kuttab/views/teacher-app/student-all-achievements-page/student-all-achievements-view.dart';
 import 'package:kuttab/views/teacher-app/teacher-home-page/teacher-home-view.dart';
+import 'package:kuttab/views/teacher-app/teacher-student-account/teacher-student-account-view.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       ],
       locale: const Locale("ar", "AE"),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/StudentAllAchievementsPage',
+      initialRoute: '/TeacherStudentAccountPage',
       home: const LoginPage(),
       getPages: [
         GetPage(name: '/LoginPage', page: () => const LoginPage()),
@@ -39,6 +40,9 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/StudentAllAchievementsPage',
             page: () => const StudentAllAchievementsPage()),
+        GetPage(
+            name: '/TeacherStudentAccountPage',
+            page: () => const TeacherStudentAccountPage()),
       ],
       title: 'Wattan',
       theme: ThemeData(
