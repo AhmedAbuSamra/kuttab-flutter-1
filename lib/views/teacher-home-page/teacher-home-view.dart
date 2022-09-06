@@ -3,14 +3,14 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:kuttab/views/teacher-home-page/widgets.dart';
 
-class TeacherHomepage extends StatefulWidget {
-  const TeacherHomepage({Key? key}) : super(key: key);
+class TeacherHomePage extends StatefulWidget {
+  const TeacherHomePage({Key? key}) : super(key: key);
 
   @override
-  State<TeacherHomepage> createState() => _TeacherHomepageState();
+  State<TeacherHomePage> createState() => _TeacherHomePageState();
 }
 
-class _TeacherHomepageState extends State<TeacherHomepage> {
+class _TeacherHomePageState extends State<TeacherHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
