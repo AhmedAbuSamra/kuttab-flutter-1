@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/login-page/login-view.dart';
+import 'package:kuttab/views/student-all-achievements-page/student-all-achievements-view.dart';
 import 'package:kuttab/views/teacher-home-page/teacher-home-view.dart';
 import 'package:provider/provider.dart';
 
@@ -30,11 +31,14 @@ class MyApp extends StatelessWidget {
       ],
       locale: const Locale("ar", "AE"),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/TeacherHomepage',
+      initialRoute: '/StudentAllAchievementsPage',
       home: const LoginPage(),
       getPages: [
         GetPage(name: '/LoginPage', page: () => const LoginPage()),
-        GetPage(name: '/TeacherHomepage', page: () => const TeacherHomepage()),
+        GetPage(name: '/TeacherHomepage', page: () => const TeacherHomePage()),
+        GetPage(
+            name: '/StudentAllAchievementsPage',
+            page: () => const StudentAllAchievementsPage()),
       ],
       title: 'Wattan',
       theme: ThemeData(
