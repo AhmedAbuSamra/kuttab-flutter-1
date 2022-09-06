@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kuttab/views/student-all-achievements-page/widgets.dart';
+import 'package:kuttab/views/teacher-app/student-all-achievements-page/widgets.dart';
 
 class StudentAllAchievementsPage extends StatefulWidget {
   const StudentAllAchievementsPage({Key? key}) : super(key: key);

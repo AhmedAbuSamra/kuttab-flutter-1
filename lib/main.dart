@@ -4,8 +4,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/login-page/login-view.dart';
-import 'package:kuttab/views/student-all-achievements-page/student-all-achievements-view.dart';
-import 'package:kuttab/views/teacher-home-page/teacher-home-view.dart';
+import 'package:kuttab/views/teacher-app/student-all-achievements-page/student-all-achievements-view.dart';
+import 'package:kuttab/views/teacher-app/teacher-home-page/teacher-home-view.dart';
 import 'package:provider/provider.dart';
 
 void main() {

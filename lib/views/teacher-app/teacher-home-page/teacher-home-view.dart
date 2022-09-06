@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:kuttab/views/teacher-home-page/widgets.dart';
+import 'package:kuttab/views/teacher-app/teacher-home-page/widgets.dart';
 
 class TeacherHomePage extends StatefulWidget {
   const TeacherHomePage({Key? key}) : super(key: key);
