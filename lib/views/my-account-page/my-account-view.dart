@@ -38,10 +38,10 @@ class _MyAccountPageState extends State<MyAccountPage> {
                 name: "محمد عبد الله",
                 type: "معلم",
               ),
-              ClassInformation(
-                className: "حلقة عثمان بن عفان",
-                coTeacher: "أحمد سعيد عارف",
-                numberOfStudents: "30",
+              MyAccountBody(
+                className: "الصف الثاني",
+                coTeacher: "محمد عبد الله",
+                numberOfStudents: "20",
               )
             ],
           ),

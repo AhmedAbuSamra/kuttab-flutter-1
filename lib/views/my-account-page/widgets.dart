@@ -104,6 +104,37 @@ class _MyAccountHomeHeaderState extends State<MyAccountHomeHeader> {
   }
 }
 
+class MyAccountBody extends StatefulWidget {
+  final String className, coTeacher, numberOfStudents;
+  const MyAccountBody(
+      {Key? key,
+      required this.className,
+      required this.coTeacher,
+      required this.numberOfStudents})
+      : super(key: key);
+
+  @override
+  State<MyAccountBody> createState() => _MyAccountBodyState();
+}
+
+class _MyAccountBodyState extends State<MyAccountBody> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: Column(children: [
+        ClassInformation(
+          className: widget.className,
+          coTeacher: widget.coTeacher,
+          numberOfStudents: widget.numberOfStudents,
+        ),
+        SizedBox(height: 40),
+        SettingsTable(),
+      ]),
+    );
+  }
+}
+
 class ClassInformation extends StatefulWidget {
   final String className, coTeacher, numberOfStudents;
   const ClassInformation(
@@ -232,6 +263,93 @@ class _ClassInformationState extends State<ClassInformation> {
           text: text,
           fontSize: 12,
           fontWeight: FontWeight.w400,
+        ),
+      ),
+    );
+  }
+}
+
+class SettingsTable extends StatefulWidget {
+  const SettingsTable({Key? key}) : super(key: key);
+
+  @override
+  State<SettingsTable> createState() => _SettingsTableState();
+}
+
+class _SettingsTableState extends State<SettingsTable> {
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 40,
+            child: Row(
+              children: [
+                const SizedBox(width: 16),
+                const AppText(
+                  text: 'بيانات الحلقة',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+                Expanded(child: Container()),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
+          Container(
+            height: 122,
+            width: screenWidth - 32,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    height: 122,
+                    width: screenWidth - 32,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(24),
+                      ),
+                      border: Border.all(
+                        color: Color(0xFFe5e5e5),
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        bodyCell("", Icons.person_rounded),
+                        const Divider(height: 0),
+                        bodyCell("", Icons.settings_rounded),
+                        const Divider(height: 0),
+                        bodyCell("", Icons.info_rounded),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container bodyCell(String text, IconData icon) {
+    return Container(
+      height: 40,
+      child: Container(
+        alignment: Alignment.centerRight,
+        child: AppText(
+          textAlign: TextAlign.right,
+          text: text,
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
