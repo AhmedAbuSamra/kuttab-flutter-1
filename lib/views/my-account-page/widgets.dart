@@ -128,8 +128,8 @@ class _MyAccountBodyState extends State<MyAccountBody> {
           coTeacher: widget.coTeacher,
           numberOfStudents: widget.numberOfStudents,
         ),
-        SizedBox(height: 40),
-        SettingsTable(),
+        const SizedBox(height: 40),
+        const SettingsTable(),
       ]),
     );
   }
@@ -285,23 +285,8 @@ class _SettingsTableState extends State<SettingsTable> {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          SizedBox(
-            height: 40,
-            child: Row(
-              children: [
-                const SizedBox(width: 16),
-                const AppText(
-                  text: 'بيانات الحلقة',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-                Expanded(child: Container()),
-              ],
-            ),
-          ),
-          const SizedBox(height: 8),
           Container(
-            height: 122,
+            height: (48 * 3) + 2,
             width: screenWidth - 32,
             child: Stack(
               children: [
@@ -309,7 +294,7 @@ class _SettingsTableState extends State<SettingsTable> {
                   top: 0,
                   right: 0,
                   child: Container(
-                    height: 122,
+                    height: (48 * 3) + 2,
                     width: screenWidth - 32,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -323,11 +308,11 @@ class _SettingsTableState extends State<SettingsTable> {
                     ),
                     child: Column(
                       children: [
-                        bodyCell("", Icons.person_rounded),
+                        bodyCell("المعلومات الشخصية", Icons.person_rounded),
                         const Divider(height: 0),
-                        bodyCell("", Icons.settings_rounded),
+                        bodyCell("الإعدادات", Icons.settings_rounded),
                         const Divider(height: 0),
-                        bodyCell("", Icons.info_rounded),
+                        bodyCell("حول التطبيق", Icons.info_rounded),
                       ],
                     ),
                   ),
@@ -342,16 +327,34 @@ class _SettingsTableState extends State<SettingsTable> {
 
   Container bodyCell(String text, IconData icon) {
     return Container(
-      height: 40,
+      height: 48,
       child: Container(
-        alignment: Alignment.centerRight,
-        child: AppText(
-          textAlign: TextAlign.right,
-          text: text,
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
+          alignment: Alignment.centerRight,
+          child: Row(
+            children: [
+              const SizedBox(width: 17.5),
+              Icon(
+                icon,
+                color: PRIMARY_COLOR,
+                size: 20,
+              ),
+              const SizedBox(width: 9.5),
+              AppText(
+                textAlign: TextAlign.right,
+                text: text,
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: PRIMARY_COLOR,
+              ),
+              Expanded(child: Container()),
+              const Icon(
+                Icons.arrow_forward_ios_rounded,
+                color: PRIMARY_COLOR,
+                size: 20,
+              ),
+              const SizedBox(width: 25),
+            ],
+          )),
     );
   }
 }
