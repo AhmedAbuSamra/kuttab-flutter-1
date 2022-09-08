@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kuttab/views/componant/app-top-bar.dart';
 import 'package:kuttab/views/teacher-app/student-all-achievements-page/widgets.dart';
 
 class StudentAllAchievementsPage extends StatefulWidget {
@@ -30,7 +31,9 @@ class _StudentAllAchievementsPageState
           child: Column(
             children: const [
               SizedBox(height: 40),
-              TopBar(),
+              AppTopBar(
+                title: "كل الإنجازات",
+              ),
               SizedBox(height: 20),
               StudentAchievementsBody(),
             ],
