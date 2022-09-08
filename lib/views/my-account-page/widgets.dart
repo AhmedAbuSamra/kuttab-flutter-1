@@ -103,3 +103,137 @@ class _MyAccountHomeHeaderState extends State<MyAccountHomeHeader> {
     );
   }
 }
+
+class ClassInformation extends StatefulWidget {
+  final String className, coTeacher, numberOfStudents;
+  const ClassInformation(
+      {Key? key,
+      required this.className,
+      required this.coTeacher,
+      required this.numberOfStudents})
+      : super(key: key);
+
+  @override
+  State<ClassInformation> createState() => _ClassInformationState();
+}
+
+class _ClassInformationState extends State<ClassInformation> {
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 40,
+            child: Row(
+              children: [
+                const SizedBox(width: 16),
+                const AppText(
+                  text: 'بيانات الحلقة',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+                Expanded(child: Container()),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
+          Container(
+            height: 122,
+            width: screenWidth - 32,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    height: 122,
+                    width: screenWidth - 32,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(24),
+                      ),
+                      border: Border.all(
+                        color: Color(0xFFe5e5e5),
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        bodyCell(screenWidth, widget.className),
+                        const Divider(height: 0),
+                        bodyCell(screenWidth, widget.coTeacher),
+                        const Divider(height: 0),
+                        bodyCell(screenWidth, widget.numberOfStudents),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    height: 122,
+                    width: screenWidth * 0.33,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFf4f4f4),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(24),
+                      ),
+                      border: Border.all(
+                        color: Color(0xFFe5e5e5),
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        headerCell("اسم الحلقة"),
+                        const Divider(height: 0),
+                        headerCell("مساعد المحفظ"),
+                        const Divider(height: 0),
+                        headerCell("عدد الطلاب"),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container bodyCell(double screenWidth, String text) {
+    return Container(
+      padding: EdgeInsets.only(right: screenWidth * 0.35),
+      height: 40,
+      child: Container(
+        alignment: Alignment.centerRight,
+        child: AppText(
+          textAlign: TextAlign.right,
+          text: text,
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+
+  SizedBox headerCell(String text) {
+    return SizedBox(
+      height: 40,
+      child: Center(
+        child: AppText(
+          text: text,
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+    );
+  }
+}
