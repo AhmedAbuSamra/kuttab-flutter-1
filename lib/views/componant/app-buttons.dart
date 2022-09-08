@@ -28,7 +28,7 @@ class FullColorButton extends StatelessWidget {
         onPressed: _onPressed,
         child: AppText(
           text: _text,
-          fontWeight: FontWeight.w900,
+          fontWeight: FontWeight.w600,
           color: Colors.white,
         ),
       ),
@@ -128,12 +128,19 @@ class WhiteIconButtton extends StatelessWidget {
               _icon.icon,
               color: BUTTON_COLOR,
             ),
-            AppText(
-              text: _text,
-              color: BUTTON_COLOR,
-              fontWeight: FontWeight.w600,
-              fontSize: 12,
-            ),
+            (_text != null)
+                ? const SizedBox(
+                    width: 5.5,
+                  )
+                : Container(),
+            (_text != null)
+                ? AppText(
+                    text: _text,
+                    color: BUTTON_COLOR,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12,
+                  )
+                : Container(),
           ],
         ),
       ),
@@ -144,15 +151,18 @@ class WhiteIconButtton extends StatelessWidget {
 class FullColorIconButtton extends StatelessWidget {
   final Function() _onPressed;
   final Icon _icon;
+  final String? _text;
   final bool? _bordered;
-  const FullColorIconButtton(
-      {Key? key,
-      required Function() onPressed,
-      required Icon icon,
-      bool? bordered})
-      : _onPressed = onPressed,
+  const FullColorIconButtton({
+    Key? key,
+    required Function() onPressed,
+    required Icon icon,
+    String? text,
+    bool? bordered,
+  })  : _onPressed = onPressed,
         _icon = icon,
         _bordered = bordered,
+        _text = text,
         super(key: key);
 
   @override
@@ -183,6 +193,19 @@ class FullColorIconButtton extends StatelessWidget {
               _icon.icon,
               color: Colors.white,
             ),
+            (_text != null)
+                ? const SizedBox(
+                    width: 5.5,
+                  )
+                : Container(),
+            (_text != null)
+                ? AppText(
+                    text: _text!,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12,
+                  )
+                : Container(),
           ],
         ),
       ),
