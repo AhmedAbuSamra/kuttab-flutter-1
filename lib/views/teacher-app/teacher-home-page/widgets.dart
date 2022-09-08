@@ -27,15 +27,20 @@ class _TopBarState extends State<TopBar> {
       margin: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          Container(
-            width: _width * 0.14,
-            height: _width * 0.14,
-            //add img here
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(40),
-              image: DecorationImage(
-                image: AssetImage(widget.imgPath),
-                fit: BoxFit.fitWidth,
+          InkWell(
+            onTap: () {
+              Get.toNamed("/MyAccountPage");
+            },
+            child: Container(
+              width: _width * 0.14,
+              height: _width * 0.14,
+              //add img here
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                image: DecorationImage(
+                  image: AssetImage(widget.imgPath),
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
           ),
