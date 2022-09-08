@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/componant/app-buttons.dart';
 import 'package:kuttab/views/componant/app-text-field.dart';
@@ -147,7 +148,9 @@ class _LoginPageState extends State<LoginPage> {
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: FullColorButton(
                   text: 'تسجيل الدخول',
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed('/TeacherHomepage');
+                  },
                 ),
               ),
               const SizedBox(
