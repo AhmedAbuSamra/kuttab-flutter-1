@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       ],
       locale: const Locale("ar", "AE"),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/TeacherStudentAccountPage',
+      initialRoute: '/LoginPage',
       home: const LoginPage(),
       getPages: [
         GetPage(name: '/LoginPage', page: () => const LoginPage()),
