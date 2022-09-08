@@ -12,6 +12,9 @@ class MyAccountPage extends StatefulWidget {
 class _MyAccountPageState extends State<MyAccountPage> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double bodyHeight = screenHeight - (screenWidth * 0.49) - 110;
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -28,7 +31,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
         ),
         child: SingleChildScrollView(
           child: Column(
-            children: const [
+            children: [
               SizedBox(height: 40),
               AppTopBar(
                 title: "حسابي",
@@ -38,10 +41,14 @@ class _MyAccountPageState extends State<MyAccountPage> {
                 name: "محمد عبد الله",
                 type: "معلم",
               ),
-              MyAccountBody(
-                className: "الصف الثاني",
-                coTeacher: "محمد عبد الله",
-                numberOfStudents: "20",
+              Container(
+                height: (bodyHeight < 500) ? 500 : bodyHeight,
+                color: Colors.white,
+                child: MyAccountBody(
+                  className: "الصف الثاني",
+                  coTeacher: "محمد عبد الله",
+                  numberOfStudents: "20",
+                ),
               )
             ],
           ),

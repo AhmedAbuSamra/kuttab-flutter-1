@@ -130,6 +130,8 @@ class _MyAccountBodyState extends State<MyAccountBody> {
         ),
         const SizedBox(height: 40),
         const SettingsTable(),
+        const SizedBox(height: 40),
+        const LogoutButton(),
       ]),
     );
   }
@@ -355,6 +357,38 @@ class _SettingsTableState extends State<SettingsTable> {
               const SizedBox(width: 25),
             ],
           )),
+    );
+  }
+}
+
+class LogoutButton extends StatefulWidget {
+  const LogoutButton({Key? key}) : super(key: key);
+
+  @override
+  State<LogoutButton> createState() => _LogoutButtonState();
+}
+
+class _LogoutButtonState extends State<LogoutButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 25),
+      child: Row(
+        children: const [
+          Icon(
+            Icons.logout_rounded,
+            color: LOGOUT,
+            size: 20,
+          ),
+          SizedBox(width: 16),
+          AppText(
+            text: "تسجيل الخروج",
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: LOGOUT,
+          )
+        ],
+      ),
     );
   }
 }
