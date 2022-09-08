@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/componant/app-text.dart';
 
@@ -310,7 +311,13 @@ class _SettingsTableState extends State<SettingsTable> {
                     ),
                     child: Column(
                       children: [
-                        bodyCell("المعلومات الشخصية", Icons.person_rounded),
+                        InkWell(
+                          onTap: () {
+                            Get.toNamed("/PersonalInformationPage");
+                          },
+                          child: bodyCell(
+                              "المعلومات الشخصية", Icons.person_rounded),
+                        ),
                         const Divider(height: 0),
                         bodyCell("الإعدادات", Icons.settings_rounded),
                         const Divider(height: 0),
