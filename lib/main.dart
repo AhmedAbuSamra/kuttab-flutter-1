@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/login-page/login-view.dart';
 import 'package:kuttab/views/my-account-page/my-account-view.dart';
+import 'package:kuttab/views/personal-information-page/personal-information-view.dart';
 import 'package:kuttab/views/teacher-app/student-all-achievements-page/student-all-achievements-view.dart';
 import 'package:kuttab/views/teacher-app/teacher-home-page/teacher-home-view.dart';
 import 'package:kuttab/views/teacher-app/teacher-student-account/teacher-student-account-view.dart';
@@ -45,6 +46,9 @@ class MyApp extends StatelessWidget {
             name: '/TeacherStudentAccountPage',
             page: () => const TeacherStudentAccountPage()),
         GetPage(name: '/MyAccountPage', page: () => const MyAccountPage()),
+        GetPage(
+            name: '/PersonalInformationPage',
+            page: () => const PersonalInformationPage()),
       ],
       title: 'Wattan',
       theme: ThemeData(
