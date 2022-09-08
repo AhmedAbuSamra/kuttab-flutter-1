@@ -36,6 +36,7 @@ dependencies:
   google_fonts: ^3.0.1
   google_fonts_arabic: ^1.1.7
   provider: ^6.0.3
+  syncfusion_flutter_datepicker: ^20.2.48
 
 dev_dependencies:
   flutter_lints: ^2.0.0
