@@ -1,6 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/componant/app-buttons.dart';
 import 'package:kuttab/views/componant/app-text.dart';
@@ -400,103 +401,108 @@ class _StudentCardState extends State<StudentCard> {
       "NoReciet": "لم يسمع",
       "Absent": "غائب",
     };
-    return Container(
-      height: 96,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(24),
-      ),
-      padding: EdgeInsets.all(16),
-      child: Row(
-        children: [
-          Container(
-            width: 64,
-            height: 64,
-            decoration: BoxDecoration(
-              border: Border.all(
-                  color: colors[widget.status] ?? Colors.white, width: 2),
-              borderRadius: BorderRadius.circular(24),
-              image: DecorationImage(
-                image: AssetImage(widget.imgPath),
-                fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Get.toNamed("/TeacherStudentAccountPage");
+      },
+      child: Container(
+        height: 96,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          color: Colors.grey.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(24),
+        ),
+        padding: EdgeInsets.all(16),
+        child: Row(
+          children: [
+            Container(
+              width: 64,
+              height: 64,
+              decoration: BoxDecoration(
+                border: Border.all(
+                    color: colors[widget.status] ?? Colors.white, width: 2),
+                borderRadius: BorderRadius.circular(24),
+                image: DecorationImage(
+                  image: AssetImage(widget.imgPath),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          const SizedBox(width: 16),
-          Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                //row for name and rate
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.6,
-                  child: Row(
-                    children: [
-                      AppText(
-                        text: widget.name,
-                        color: Colors.black,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      Expanded(child: Container()),
-                      widget.rate != null
-                          ? Container(
-                              height: 18,
-                              width: 34,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  AppText(
-                                    text: widget.rate.toString(),
-                                    color: RATE_STAR,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Icon(
-                                    Icons.star,
-                                    color: RATE_STAR,
-                                    size: 12,
-                                  ),
-                                ],
-                              ),
-                            )
-                          : Container(),
-                    ],
+            const SizedBox(width: 16),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //row for name and rate
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    child: Row(
+                      children: [
+                        AppText(
+                          text: widget.name,
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        Expanded(child: Container()),
+                        widget.rate != null
+                            ? Container(
+                                height: 18,
+                                width: 34,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AppText(
+                                      text: widget.rate.toString(),
+                                      color: RATE_STAR,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Icon(
+                                      Icons.star,
+                                      color: RATE_STAR,
+                                      size: 12,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : Container(),
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                //row for status and performance
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.6,
-                  child: Row(
-                    children: [
-                      AppText(
-                        text: performances[widget.status] ?? " ",
-                        color: colors[widget.status] ?? Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      widget.status == "Present"
-                          ? AppText(
-                              text: widget.performance,
-                              color: Colors.black,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            )
-                          : Container(),
-                    ],
+                  const SizedBox(height: 8),
+                  //row for status and performance
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    child: Row(
+                      children: [
+                        AppText(
+                          text: performances[widget.status] ?? " ",
+                          color: colors[widget.status] ?? Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        widget.status == "Present"
+                            ? AppText(
+                                text: widget.performance,
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              )
+                            : Container(),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          )
-        ],
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
