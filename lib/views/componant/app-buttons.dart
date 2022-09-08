@@ -64,7 +64,7 @@ class WhiteButtton extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(30.0),
               side: (_bordered == false)
                   ? (const BorderSide(color: Colors.white))
                   : (const BorderSide(color: PRIMARY_COLOR)),
@@ -75,8 +75,8 @@ class WhiteButtton extends StatelessWidget {
         child: AppText(
           text: _text,
           color: PRIMARY_COLOR,
-          fontWeight: FontWeight.w900,
-          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          fontSize: 12,
         ),
       ),
     );
