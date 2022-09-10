@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
+import 'package:kuttab/views/about-page/about-view.dart';
 import 'package:kuttab/views/login-page/login-view.dart';
 import 'package:kuttab/views/my-account-page/my-account-view.dart';
 import 'package:kuttab/views/personal-information-page/personal-information-view.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/LoginPage', page: () => const LoginPage()),
         GetPage(name: '/SettingsPage', page: () => const SettingsPage()),
+        GetPage(name: '/AboutPage', page: () => const AboutPage()),
         GetPage(name: '/TeacherHomepage', page: () => const TeacherHomePage()),
         GetPage(
             name: '/StudentAllAchievementsPage',
