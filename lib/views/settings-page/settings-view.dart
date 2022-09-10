@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kuttab/views/componant/app-text.dart';
 import 'package:kuttab/views/componant/app-top-bar.dart';
+import 'package:kuttab/views/settings-page/widgets.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -27,10 +28,14 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         child: SingleChildScrollView(
           child: Column(
-            children: const [
-              SizedBox(height: 40),
-              AppTopBar(
+            children: [
+              const SizedBox(height: 40),
+              const AppTopBar(
                 title: 'الإعدادات',
+              ),
+              const SizedBox(height: 16),
+              SettingPageBody(
+                isSetingsOn: false,
               ),
             ],
           ),
