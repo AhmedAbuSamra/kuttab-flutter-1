@@ -319,7 +319,15 @@ class _SettingsTableState extends State<SettingsTable> {
                               "المعلومات الشخصية", Icons.person_rounded),
                         ),
                         const Divider(height: 0),
-                        bodyCell("الإعدادات", Icons.settings_rounded),
+                        InkWell(
+                          onTap: () {
+                            Get.toNamed("/SettingsPage");
+                          },
+                          child: bodyCell(
+                            "الإعدادات",
+                            Icons.settings_rounded,
+                          ),
+                        ),
                         const Divider(height: 0),
                         bodyCell("حول التطبيق", Icons.info_rounded),
                       ],
