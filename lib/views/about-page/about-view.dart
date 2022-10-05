@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kuttab/views/about-page/widgets.dart';
 import 'package:kuttab/views/componant/app-top-bar.dart';
 
 class AboutPage extends StatefulWidget {
@@ -29,9 +30,10 @@ class _AboutPageState extends State<AboutPage> {
             children: [
               const SizedBox(height: 40),
               const AppTopBar(
-                title: 'الإعدادات',
+                title: 'حول التطبيق',
               ),
               const SizedBox(height: 16),
+              const AboutPageBody(),
             ],
           ),
         ),
