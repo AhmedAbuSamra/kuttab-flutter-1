@@ -45,8 +45,10 @@ dev_dependencies:
     sdk: flutter
 
 flutter_native_splash:
-  image: assets/images/Logo-white.png
-  color: "#2BBB67"
+  color: "#ffffff"
+  image: assets/images/Logo-green.png
+  background-image: assets/images/Logo-background-white.png
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -61,6 +63,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/json/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
