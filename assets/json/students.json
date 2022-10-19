@@ -1,0 +1,242 @@
+[
+    {
+        "id": "1",
+        "name": "محمد أحمد عبدالله سعيد",
+        "age": 20,
+        "imagePath": "assets/images/kid1.jpg",
+        "isPresent": true,
+        "status": "NoReciet",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "2",
+        "name": "محمد لطفي خليل سعيد",
+        "age": "21",
+        "imagePath": "assets/images/kid2.jpg",
+        "isPresent": true,
+        "status": "Absent",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "3",
+        "name": "عبد الرحمن عبدالله فايز شاكر",
+        "age": "22",
+        "imagePath": "assets/images/kid3.jpg",
+        "isPresent": false,
+        "status": "Present",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "1",
+        "name": "محمد أحمد عبدالله سعيد",
+        "age": 20,
+        "imagePath": "assets/images/kid1.jpg",
+        "isPresent": true,
+        "status": "NoReciet",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "2",
+        "name": "محمد لطفي خليل سعيد",
+        "age": "21",
+        "imagePath": "assets/images/kid2.jpg",
+        "isPresent": true,
+        "status": "Absent",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "3",
+        "name": "عبد الرحمن عبدالله فايز شاكر",
+        "age": "22",
+        "imagePath": "assets/images/kid3.jpg",
+        "isPresent": false,
+        "status": "Present",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "1",
+        "name": "محمد أحمد عبدالله سعيد",
+        "age": 20,
+        "imagePath": "assets/images/kid1.jpg",
+        "isPresent": true,
+        "status": "NoReciet",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "2",
+        "name": "محمد لطفي خليل سعيد",
+        "age": "21",
+        "imagePath": "assets/images/kid2.jpg",
+        "isPresent": true,
+        "status": "Absent",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "3",
+        "name": "عبد الرحمن عبدالله فايز شاكر",
+        "age": "22",
+        "imagePath": "assets/images/kid3.jpg",
+        "isPresent": false,
+        "status": "Present",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "1",
+        "name": "محمد أحمد عبدالله سعيد",
+        "age": 20,
+        "imagePath": "assets/images/kid1.jpg",
+        "isPresent": true,
+        "status": "NoReciet",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "2",
+        "name": "محمد لطفي خليل سعيد",
+        "age": "21",
+        "imagePath": "assets/images/kid2.jpg",
+        "isPresent": true,
+        "status": "Absent",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "3",
+        "name": "عبد الرحمن عبدالله فايز شاكر",
+        "age": "22",
+        "imagePath": "assets/images/kid3.jpg",
+        "isPresent": false,
+        "status": "Present",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "1",
+        "name": "محمد أحمد عبدالله سعيد",
+        "age": 20,
+        "imagePath": "assets/images/kid1.jpg",
+        "isPresent": true,
+        "status": "NoReciet",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "2",
+        "name": "محمد لطفي خليل سعيد",
+        "age": "21",
+        "imagePath": "assets/images/kid2.jpg",
+        "isPresent": true,
+        "status": "Absent",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "3",
+        "name": "عبد الرحمن عبدالله فايز شاكر",
+        "age": "22",
+        "imagePath": "assets/images/kid3.jpg",
+        "isPresent": false,
+        "status": "Present",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "1",
+        "name": "محمد أحمد عبدالله سعيد",
+        "age": 20,
+        "imagePath": "assets/images/kid1.jpg",
+        "isPresent": true,
+        "status": "NoReciet",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "2",
+        "name": "محمد لطفي خليل سعيد",
+        "age": "21",
+        "imagePath": "assets/images/kid2.jpg",
+        "isPresent": true,
+        "status": "Absent",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "3",
+        "name": "عبد الرحمن عبدالله فايز شاكر",
+        "age": "22",
+        "imagePath": "assets/images/kid3.jpg",
+        "isPresent": false,
+        "status": "Present",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "1",
+        "name": "محمد أحمد عبدالله سعيد",
+        "age": 20,
+        "imagePath": "assets/images/kid1.jpg",
+        "isPresent": true,
+        "status": "NoReciet",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "2",
+        "name": "محمد لطفي خليل سعيد",
+        "age": "21",
+        "imagePath": "assets/images/kid2.jpg",
+        "isPresent": true,
+        "status": "Absent",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "3",
+        "name": "عبد الرحمن عبدالله فايز شاكر",
+        "age": "22",
+        "imagePath": "assets/images/kid3.jpg",
+        "isPresent": false,
+        "status": "Present",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "1",
+        "name": "محمد أحمد عبدالله سعيد",
+        "age": 20,
+        "imagePath": "assets/images/kid1.jpg",
+        "isPresent": true,
+        "status": "NoReciet",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "2",
+        "name": "محمد لطفي خليل سعيد",
+        "age": "21",
+        "imagePath": "assets/images/kid2.jpg",
+        "isPresent": true,
+        "status": "Absent",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    },
+    {
+        "id": "3",
+        "name": "عبد الرحمن عبدالله فايز شاكر",
+        "age": "22",
+        "imagePath": "assets/images/kid3.jpg",
+        "isPresent": false,
+        "status": "Present",
+        "performance": "الحاقة 1 - الحاقة 20",
+        "rate"   : 3
+    }
+]
