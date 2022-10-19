@@ -249,127 +249,150 @@ class _TeacherHomeBodyState extends State<TeacherHomeBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        children: [
-          const SizedBox(height: 24),
-          //row for buttons (record attendance, absence permission)
-          Row(
+      height: MediaQuery.of(context).size.height -
+          (MediaQuery.of(context).size.width * 0.63 + 68),
+      child: SingleChildScrollView(
+        child: Container(
+          color: Colors.white,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
             children: [
-              SizedBox(
-                height: 48,
-                width: (MediaQuery.of(context).size.width - 40) * 0.55,
-                child: WhiteIconButtton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.add),
-                  text: "تسجيل حضور",
+              const SizedBox(height: 24),
+              //row for buttons (record attendance, absence permission)
+              Row(
+                children: [
+                  SizedBox(
+                    height: 48,
+                    width: (MediaQuery.of(context).size.width - 40) * 0.55,
+                    child: WhiteIconButtton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.add),
+                      text: "تسجيل حضور",
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  SizedBox(
+                    height: 48,
+                    width: (MediaQuery.of(context).size.width - 40) * 0.45,
+                    child: WhiteIconButtton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.add),
+                      text: "إذن غياب",
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 32),
+              //row for student and Search
+              Row(
+                children: [
+                  const AppText(
+                    text: "الطلاب",
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  Expanded(child: Container()),
+                  SizedBox(
+                    height: 40,
+                    width: (MediaQuery.of(context).size.width - 40) * 0.18,
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed("/StudentAttendancePage");
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: PRIMARY_COLOR,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: const AssetImage(
+                                  "assets/images/calendar-tick.png"),
+                              fit: BoxFit.fitHeight,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  SearchField(),
+                ],
+              ),
+              const SizedBox(height: 16),
+              // date container
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 24,
+                decoration: BoxDecoration(
+                  color: PRIMARY_COLOR.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 15,
+                      height: 15,
+                      decoration: BoxDecoration(
+                        color: PRIMARY_COLOR,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Icon(
+                        size: 10,
+                        Icons.calendar_today,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    const AppText(
+                      text: "الأحد  ",
+                      color: PRIMARY_COLOR,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    const AppText(
+                      text: "2021/10/10",
+                      color: PRIMARY_COLOR,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(width: 8),
-              SizedBox(
-                height: 48,
-                width: (MediaQuery.of(context).size.width - 40) * 0.45,
-                child: WhiteIconButtton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.add),
-                  text: "إذن غياب",
-                ),
+              const SizedBox(height: 16),
+              // list of students
+              const StudentCard(
+                name: "محمد عبد الله",
+                status: "Present",
+                performance: "الحاقة 1 - الحاقة 20",
+                imgPath: "assets/images/kid1.jpg",
+                rate: 4,
+              ),
+              const SizedBox(height: 16),
+              // list of students
+              const StudentCard(
+                name: "أحمد محمد ",
+                status: "NoReciet",
+                performance: "الحاقة 1 - الحاقة 20",
+                imgPath: "assets/images/kid2.jpg",
+                rate: 4,
+              ),
+              const SizedBox(height: 16),
+              // list of students
+              const StudentCard(
+                name: "محمد أحمد",
+                status: "Absent",
+                performance: "الحاقة 1 - الحاقة 20",
+                imgPath: "assets/images/kid3.jpg",
+                rate: 4,
               ),
             ],
           ),
-          const SizedBox(height: 32),
-          //row for student and Search
-          Row(
-            children: [
-              const AppText(
-                text: "الطلاب",
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
-              Expanded(child: Container()),
-              SizedBox(
-                height: 40,
-                width: (MediaQuery.of(context).size.width - 40) * 0.18,
-                child: FullColorIconButtton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.add),
-                ),
-              ),
-              const SizedBox(width: 8),
-              SearchField(),
-            ],
-          ),
-          const SizedBox(height: 16),
-          // date container
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 24,
-            decoration: BoxDecoration(
-              color: PRIMARY_COLOR.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 15,
-                  height: 15,
-                  decoration: BoxDecoration(
-                    color: PRIMARY_COLOR,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Icon(
-                    size: 10,
-                    Icons.calendar_today,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(width: 8),
-                const AppText(
-                  text: "الأحد  ",
-                  color: PRIMARY_COLOR,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-                const AppText(
-                  text: "2021/10/10",
-                  color: PRIMARY_COLOR,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 16),
-          // list of students
-          const StudentCard(
-            name: "محمد عبد الله",
-            status: "Present",
-            performance: "الحاقة 1 - الحاقة 20",
-            imgPath: "assets/images/kid1.jpg",
-            rate: 4,
-          ),
-          const SizedBox(height: 16),
-          // list of students
-          const StudentCard(
-            name: "أحمد محمد ",
-            status: "NoReciet",
-            performance: "الحاقة 1 - الحاقة 20",
-            imgPath: "assets/images/kid2.jpg",
-            rate: 4,
-          ),
-          const SizedBox(height: 16),
-          // list of students
-          const StudentCard(
-            name: "محمد أحمد",
-            status: "Absent",
-            performance: "الحاقة 1 - الحاقة 20",
-            imgPath: "assets/images/kid3.jpg",
-            rate: 4,
-          ),
-        ],
+        ),
       ),
     );
   }

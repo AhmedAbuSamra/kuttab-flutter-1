@@ -25,7 +25,8 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
             opacity: 1,
           ),
         ),
-        child: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
           child: Column(
             children: const [
               SizedBox(height: 50),
