@@ -9,13 +9,14 @@ import 'package:kuttab/views/my-account-page/my-account-view.dart';
 import 'package:kuttab/views/personal-information-page/personal-information-view.dart';
 import 'package:kuttab/views/settings-page/settings-view.dart';
 import 'package:kuttab/views/teacher-app/student-all-achievements-page/student-all-achievements-view.dart';
+import 'package:kuttab/views/teacher-app/student-attendance-page/student-attendance-view.dart';
 import 'package:kuttab/views/teacher-app/teacher-home-page/teacher-home-view.dart';
 import 'package:kuttab/views/teacher-app/teacher-student-account/teacher-student-account-view.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  // SystemChrome.setSystemUIOverlayStyle(
+  //const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(const MyApp());
 }
 
@@ -53,6 +54,9 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/PersonalInformationPage',
             page: () => const PersonalInformationPage()),
+        GetPage(
+            name: '/StudentAttendancePage',
+            page: () => const StudentAttendancePage()),
       ],
       title: 'Wattan',
       theme: ThemeData(
