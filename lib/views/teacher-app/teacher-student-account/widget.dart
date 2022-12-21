@@ -139,11 +139,16 @@ class _StudentProfileHeaderState extends State<StudentProfileHeader> {
                   fontWeight: FontWeight.w700,
                 ),
                 const SizedBox(height: 8),
-                AppText(
-                  text: 'تعديل الحساب',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: PRIMARY_COLOR,
+                InkWell(
+                  onTap: () {
+                    Get.toNamed("/StudentAccountPage");
+                  },
+                  child: AppText(
+                    text: 'تعديل الحساب',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: PRIMARY_COLOR,
+                  ),
                 ),
               ],
             ),
