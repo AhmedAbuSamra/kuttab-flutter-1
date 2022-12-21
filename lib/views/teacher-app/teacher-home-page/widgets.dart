@@ -66,44 +66,49 @@ class _TopBarState extends State<TopBar> {
           ),
           Expanded(child: Container()),
           //create notification icon here
-          Container(
-            width: _width * 0.11,
-            height: _width * 0.11,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: PRIMARY_DARK_COLOR,
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  child: Container(
-                    width: _width * 0.07,
-                    height: _width * 0.07,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      image: const DecorationImage(
-                        image: AssetImage(NOTIFICATION_ICON),
-                        fit: BoxFit.fitWidth,
+          InkWell(
+            onTap: (() {
+              Get.toNamed('/NotificationsPage');
+            }),
+            child: Container(
+              width: _width * 0.11,
+              height: _width * 0.11,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: PRIMARY_DARK_COLOR,
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    child: Container(
+                      width: _width * 0.07,
+                      height: _width * 0.07,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: const DecorationImage(
+                          image: AssetImage(NOTIFICATION_ICON),
+                          fit: BoxFit.fitWidth,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                widget.haveNotification
-                    ? Positioned(
-                        right: _width * 0.02,
-                        top: _width * 0.02,
-                        child: Container(
-                          width: _width * 0.025,
-                          height: _width * 0.025,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.red,
+                  widget.haveNotification
+                      ? Positioned(
+                          right: _width * 0.02,
+                          top: _width * 0.02,
+                          child: Container(
+                            width: _width * 0.025,
+                            height: _width * 0.025,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              color: Colors.red,
+                            ),
                           ),
-                        ),
-                      )
-                    : Container(),
-              ],
+                        )
+                      : Container(),
+                ],
+              ),
             ),
           ),
         ],
