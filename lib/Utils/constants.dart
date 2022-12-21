@@ -6,6 +6,7 @@ const Color PRIMARY_COLOR = Color(0xFF2CBC67);
 const Color SECONDARY_COLOR = Color(0xFF0B0B0B);
 const Color PRIMARY_DARK_COLOR = Color(0xFF103E1C);
 const Color BUTTON_COLOR = Color(0xFF2DBB66);
+const Color GRAY_COLOR = Color(0xFFF4F4F4);
 const Color PRESENT = Color(0xFF2CBC67);
 const Color NO_RECIET = Color(0xFFF39C12);
 const Color ABSENT = Color(0xFFE74C3C);
