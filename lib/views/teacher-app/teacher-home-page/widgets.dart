@@ -1,9 +1,11 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/componant/app-buttons.dart';
+import 'package:kuttab/views/componant/app-text-field.dart';
 import 'package:kuttab/views/componant/app-text.dart';
 import 'package:kuttab/views/componant/search-field.dart';
 
@@ -270,7 +272,9 @@ class _TeacherHomeBodyState extends State<TeacherHomeBody> {
                     height: 48,
                     width: (MediaQuery.of(context).size.width - 40) * 0.55,
                     child: WhiteIconButtton(
-                      onPressed: () {},
+                      onPressed: () {
+                        RecordAttendanceDialog(context);
+                      },
                       icon: const Icon(Icons.add),
                       text: "تسجيل حضور",
                     ),
@@ -280,7 +284,9 @@ class _TeacherHomeBodyState extends State<TeacherHomeBody> {
                     height: 48,
                     width: (MediaQuery.of(context).size.width - 40) * 0.45,
                     child: WhiteIconButtton(
-                      onPressed: () {},
+                      onPressed: () {
+                        giveAbsencePermission(context);
+                      },
                       icon: const Icon(Icons.add),
                       text: "إذن غياب",
                     ),
@@ -395,12 +401,167 @@ class _TeacherHomeBodyState extends State<TeacherHomeBody> {
                 imgPath: "assets/images/kid3.jpg",
                 rate: 4,
               ),
+              const SizedBox(height: 16),
+              // list of students
+              const StudentCard(
+                name: "محمد أحمد",
+                status: "Absent",
+                performance: "الحاقة 1 - الحاقة 20",
+                imgPath: "assets/images/kid3.jpg",
+                rate: 4,
+              ),
             ],
           ),
         ),
       ),
     );
   }
+
+  Future<dynamic> RecordAttendanceDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: ((context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(width: 80, "assets/images/Agreed-green.png"),
+              const SizedBox(height: 24),
+              AppText(
+                text: "تسجيل الحضور",
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+              const SizedBox(height: 16),
+              AppText(
+                text: "هل تريد بالتأكيد تسجيل حضورك؟",
+                color: Colors.black,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+              ),
+              const SizedBox(height: 48),
+              SizedBox(
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    Flexible(
+                      flex: 6,
+                      child: FullColorButton(
+                          onPressed: () {
+                            Get.snackbar(
+                              "شكرا لك",
+                              "تم تسجيل الحضور بنجاح",
+                              backgroundColor: Colors.white,
+                            );
+                            Navigator.pop(context);
+                          },
+                          text: "نعم"),
+                    ),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      flex: 4,
+                      child: WhiteButtton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          text: "لا"),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      }),
+    );
+  }
+}
+
+Future<dynamic> giveAbsencePermission(BuildContext context) {
+  return showDialog(
+    context: context,
+    builder: ((context) {
+      return AlertDialog(
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              width: double.infinity,
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: (() {
+                      Navigator.pop(context);
+                    }),
+                    child: Container(
+                      padding: EdgeInsets.all(4),
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle, color: GRAY_COLOR),
+                      height: 24,
+                      child: const Icon(
+                        Icons.close,
+                        size: 16,
+                      ),
+                    ),
+                  ),
+                  Expanded(child: Container()),
+                  AppText(
+                    text: "إذن غياب",
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  Expanded(child: Container()),
+                  SizedBox(width: 24)
+                ],
+              ),
+            ),
+            const SizedBox(height: 45),
+            /////////////
+            // tilte filed
+            /////////////
+            /// title row
+            Row(
+              children: const [
+                Icon(
+                  Icons.person_rounded,
+                  color: PRIMARY_COLOR,
+                  size: 19,
+                ),
+                SizedBox(width: 16),
+                AppText(
+                  text: "سبب الغياب",
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                )
+              ],
+            ),
+            const SizedBox(height: 11),
+            // field
+            AppTextField(
+              hintText: "سبب الغياب",
+              obscure: false,
+            ),
+            const SizedBox(height: 48),
+            SizedBox(
+              width: double.infinity,
+              child: FullColorButton(
+                  onPressed: () {
+                    Get.snackbar(
+                      "شكرا لك",
+                      "تم إرسال إذن غياب",
+                      backgroundColor: Colors.white,
+                    );
+                    Navigator.pop(context);
+                  },
+                  text: "الإذن"),
+            )
+          ],
+        ),
+      );
+    }),
+  );
 }
 
 //create a class for the student card
