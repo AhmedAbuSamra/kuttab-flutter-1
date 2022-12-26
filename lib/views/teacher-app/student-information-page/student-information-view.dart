@@ -3,14 +3,14 @@ import 'package:flutter/rendering.dart';
 import 'package:kuttab/views/componant/app-top-bar.dart';
 import 'package:kuttab/views/teacher-app/student-information-page/widgets.dart';
 
-class StudentAccountPage extends StatefulWidget {
-  const StudentAccountPage({super.key});
+class StudentInformationPage extends StatefulWidget {
+  const StudentInformationPage({super.key});
 
   @override
-  State<StudentAccountPage> createState() => _StudentAccountPageState();
+  State<StudentInformationPage> createState() => _StudentInformationPageState();
 }
 
-class _StudentAccountPageState extends State<StudentAccountPage> {
+class _StudentInformationPageState extends State<StudentInformationPage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
