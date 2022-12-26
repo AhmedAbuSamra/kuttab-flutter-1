@@ -32,14 +32,24 @@ class _StudentProfileBodyState extends State<StudentProfileBody> {
           const SizedBox(height: 24),
           const PerformanceBar(),
           const SizedBox(height: 32),
-          recordNewPerformanceButton(width),
-          const SizedBox(height: 24),
-          performanceRow(width),
-          const SizedBox(height: 16),
-          const StudentAchievementsList(),
-          const SizedBox(height: 24),
-          const ReportCard(),
-          const SizedBox(height: 24),
+          Container(
+            height: MediaQuery.of(context).size.height - 334,
+            // 40+50+20+32+84+24+52+32
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  recordNewPerformanceButton(width),
+                  const SizedBox(height: 24),
+                  performanceRow(width),
+                  const SizedBox(height: 16),
+                  const StudentAchievementsList(),
+                  const SizedBox(height: 24),
+                  const ReportCard(),
+                  const SizedBox(height: 24),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -111,6 +121,7 @@ class _StudentProfileHeaderState extends State<StudentProfileHeader> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Container(
+      height: 84,
       padding: EdgeInsets.symmetric(horizontal: width / 11),
       child: Row(
         children: [
@@ -141,7 +152,7 @@ class _StudentProfileHeaderState extends State<StudentProfileHeader> {
                 const SizedBox(height: 8),
                 InkWell(
                   onTap: () {
-                    Get.toNamed("/StudentAccountPage");
+                    Get.toNamed("/StudentInformationPage");
                   },
                   child: AppText(
                     text: 'تعديل الحساب',

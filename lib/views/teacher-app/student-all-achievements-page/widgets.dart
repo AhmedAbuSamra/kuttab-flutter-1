@@ -86,6 +86,8 @@ class _StudentAchievementsBodyState extends State<StudentAchievementsBody> {
           DateRangPicker(),
           SizedBox(height: 20),
           Container(
+            // 40+50+20+32+20
+            height: MediaQuery.of(context).size.height - 205,
             padding: const EdgeInsets.symmetric(horizontal: 17.5),
             child: StudentAchievementsList(),
           ),
@@ -106,80 +108,82 @@ class StudentAchievementsList extends StatefulWidget {
 class _StudentAchievementsListState extends State<StudentAchievementsList> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        OneDayAchiementCard(
-          imgPath: "assets/images/kid1.png",
-          presentStatus: "Present",
-          performance: [
-            {
-              "performanceType": "memorized",
-              "performance": "الحاقة 11 - الحاقة 20",
-              "rate": 5
-            },
-            {
-              "performanceType": "Review",
-              "performance": "الحاقة 1 - الحاقة 10",
-              "rate": 4
-            },
-            {
-              "performanceType": "Recitation",
-              "performance": "الحاقة 21 - الحاقة 30",
-              "rate": 3
-            }
-          ],
-        ),
-        OneDayAchiementCard(
-          imgPath: "assets/images/kid1.png",
-          presentStatus: "NoReciet",
-        ),
-        OneDayAchiementCard(
-          imgPath: "assets/images/kid1.png",
-          presentStatus: "Present",
-          performance: [
-            {
-              "performanceType": "memorized",
-              "performance": "الحاقة 11 - الحاقة 20",
-              "rate": 5
-            },
-            {
-              "performanceType": "Review",
-              "performance": "الحاقة 1 - الحاقة 10",
-              "rate": 4
-            },
-            {
-              "performanceType": "Recitation",
-              "performance": "الحاقة 21 - الحاقة 30",
-              "rate": 3
-            }
-          ],
-        ),
-        OneDayAchiementCard(
-          imgPath: "assets/images/kid1.png",
-          presentStatus: "Absent",
-        ),
-        OneDayAchiementCard(
-          imgPath: "assets/images/kid1.png",
-          presentStatus: "Present",
-          performance: [
-            {
-              "performanceType": "memorized",
-              "performance": "الحاقة 11 - الحاقة 20",
-              "rate": 5
-            },
-            {
-              "performanceType": "Review",
-              "performance": "الحاقة 1 - الحاقة 10",
-              "rate": 4
-            },
-            {
-              "performanceType": "Recitation",
-              "performance": "الحاقة 21 - الحاقة 30",
-              "rate": 3
-            }
-          ],
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: const [
+          OneDayAchiementCard(
+            imgPath: "assets/images/kid1.png",
+            presentStatus: "Present",
+            performance: [
+              {
+                "performanceType": "memorized",
+                "performance": "الحاقة 11 - الحاقة 20",
+                "rate": 5
+              },
+              {
+                "performanceType": "Review",
+                "performance": "الحاقة 1 - الحاقة 10",
+                "rate": 4
+              },
+              {
+                "performanceType": "Recitation",
+                "performance": "الحاقة 21 - الحاقة 30",
+                "rate": 3
+              }
+            ],
+          ),
+          OneDayAchiementCard(
+            imgPath: "assets/images/kid1.png",
+            presentStatus: "NoReciet",
+          ),
+          OneDayAchiementCard(
+            imgPath: "assets/images/kid1.png",
+            presentStatus: "Present",
+            performance: [
+              {
+                "performanceType": "memorized",
+                "performance": "الحاقة 11 - الحاقة 20",
+                "rate": 5
+              },
+              {
+                "performanceType": "Review",
+                "performance": "الحاقة 1 - الحاقة 10",
+                "rate": 4
+              },
+              {
+                "performanceType": "Recitation",
+                "performance": "الحاقة 21 - الحاقة 30",
+                "rate": 3
+              }
+            ],
+          ),
+          OneDayAchiementCard(
+            imgPath: "assets/images/kid1.png",
+            presentStatus: "Absent",
+          ),
+          OneDayAchiementCard(
+            imgPath: "assets/images/kid1.png",
+            presentStatus: "Present",
+            performance: [
+              {
+                "performanceType": "memorized",
+                "performance": "الحاقة 11 - الحاقة 20",
+                "rate": 5
+              },
+              {
+                "performanceType": "Review",
+                "performance": "الحاقة 1 - الحاقة 10",
+                "rate": 4
+              },
+              {
+                "performanceType": "Recitation",
+                "performance": "الحاقة 21 - الحاقة 30",
+                "rate": 3
+              }
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

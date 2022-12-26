@@ -29,29 +29,26 @@ class _MyAccountPageState extends State<MyAccountPage> {
             opacity: 0.1,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 40),
-              AppTopBar(
-                title: "حسابي",
+        child: Column(
+          children: [
+            SizedBox(height: 40),
+            AppTopBar(
+              title: "حسابي",
+            ),
+            MyAccountHomeHeader(
+              imgPath: "assets/images/personal-pic.png",
+              name: "محمد عبد الله",
+              type: "معلم",
+            ),
+            Container(
+              color: Colors.white,
+              child: MyAccountBody(
+                className: "الصف الثاني",
+                coTeacher: "محمد عبد الله",
+                numberOfStudents: "20",
               ),
-              MyAccountHomeHeader(
-                imgPath: "assets/images/personal-pic.png",
-                name: "محمد عبد الله",
-                type: "معلم",
-              ),
-              Container(
-                height: (bodyHeight < 500) ? 500 : bodyHeight,
-                color: Colors.white,
-                child: MyAccountBody(
-                  className: "الصف الثاني",
-                  coTeacher: "محمد عبد الله",
-                  numberOfStudents: "20",
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

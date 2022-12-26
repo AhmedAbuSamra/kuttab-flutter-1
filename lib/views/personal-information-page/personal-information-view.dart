@@ -14,6 +14,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -26,17 +27,15 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
             opacity: 0.1,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [
-              SizedBox(height: 40),
-              AppTopBar(
-                title: "المعلومات الشخصية",
-              ),
-              SizedBox(height: 16),
-              PersonalInformationBody(),
-            ],
-          ),
+        child: Column(
+          children: const [
+            SizedBox(height: 40),
+            AppTopBar(
+              title: "المعلومات الشخصية",
+            ),
+            SizedBox(height: 16),
+            PersonalInformationBody(),
+          ],
         ),
       ),
     );

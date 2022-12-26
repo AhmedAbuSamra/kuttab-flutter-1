@@ -17,188 +17,194 @@ class _PersonalInformationBodyState extends State<PersonalInformationBody> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom, top: 16),
+      height: MediaQuery.of(context).size.height - 106,
+      width: screenWidth,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(32),
         ),
       ),
-      child: Column(
-        children: [
-          const SizedBox(height: 32),
-          const PersonalPicturePicker(
-            imgPath: "assets/images/personal-pic.png",
-          ),
-          const SizedBox(height: 32),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 16),
-            child: Form(
-              child: Column(
-                children: [
-                  /////////////
-                  // name filed
-                  /////////////
-                  /// title row
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.person_rounded,
-                        color: PRIMARY_COLOR,
-                        size: 19,
-                      ),
-                      SizedBox(width: 16),
-                      AppText(
-                        text: "الاسم رباعي",
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 11),
-                  // field
-                  AppTextField(
-                    hintText: "الاسم رباعي",
-                    initialValue: "محمد أحمد سعيد عبدالحي",
-                    obscure: false,
-                  ),
-                  const SizedBox(height: 19),
-                  /////////////
-                  // date of Bairth field
-                  /////////////
-                  /// title row
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.cake_rounded,
-                        color: PRIMARY_COLOR,
-                        size: 19,
-                      ),
-                      SizedBox(width: 16),
-                      AppText(
-                        text: "تاريخ الميلاد",
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 11),
-                  // field
-                  AppTextField(
-                    hintText: "تاريخ الميلاد",
-                    initialValue: " 19 / 10 / 1999",
-                    obscure: false,
-                  ),
-                  const SizedBox(height: 19),
-                  /////////////
-                  // study level
-                  /////////////
-                  /// title row
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.school_rounded,
-                        color: PRIMARY_COLOR,
-                        size: 19,
-                      ),
-                      SizedBox(width: 16),
-                      AppText(
-                        text: "المستوى الدراسي",
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 11),
-                  // field
-                  AppTextField(
-                    hintText: "المستوى الدراسي",
-                    initialValue: "باكالوريوس",
-                    obscure: false,
-                  ),
-                  const SizedBox(height: 19),
-                  /////////////
-                  // national ID number
-                  /////////////
-                  /// title row
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.numbers,
-                        color: PRIMARY_COLOR,
-                        size: 19,
-                      ),
-                      SizedBox(width: 16),
-                      AppText(
-                        text: "رقم الهوية",
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 11),
-                  // field
-                  AppTextField(
-                    hintText: "رقم الهوية",
-                    initialValue: "909988987",
-                    obscure: false,
-                  ),
-                  const SizedBox(height: 19),
-                  /////////////
-                  // full address
-                  /////////////
-                  /// title row
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.person_rounded,
-                        color: PRIMARY_COLOR,
-                        size: 19,
-                      ),
-                      SizedBox(width: 16),
-                      AppText(
-                        text: "العنوان بالتفصيل",
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 11),
-                  // field
-                  AppTextField(
-                    hintText: "العنوان بالتفصيل",
-                    initialValue:
-                        "غزة - الرمال - شارع الشهداء - بجوار مسجد الشهداء",
-                    obscure: false,
-                  ),
-                  const SizedBox(height: 48),
-                  Container(
-                    child: Row(
-                      children: [
-                        Container(
-                          width: (screenWidth - 40) * 0.55,
-                          child:
-                              FullColorButton(onPressed: () {}, text: "حفظ "),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 16),
+            const PersonalPicturePicker(
+              imgPath: "assets/images/personal-pic.png",
+            ),
+            const SizedBox(height: 32),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 16),
+              child: Form(
+                child: Column(
+                  children: [
+                    /////////////
+                    // name filed
+                    /////////////
+                    /// title row
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.person_rounded,
+                          color: PRIMARY_COLOR,
+                          size: 19,
                         ),
-                        Expanded(child: Container()),
-                        Container(
-                          width: (screenWidth - 40) * 0.45,
-                          child: WhiteButtton(onPressed: () {}, text: "إلغاء "),
-                        ),
+                        SizedBox(width: 16),
+                        AppText(
+                          text: "الاسم رباعي",
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        )
                       ],
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                ],
+                    const SizedBox(height: 11),
+                    // field
+                    AppTextField(
+                      hintText: "الاسم رباعي",
+                      initialValue: "محمد أحمد سعيد عبدالحي",
+                      obscure: false,
+                    ),
+                    const SizedBox(height: 19),
+                    /////////////
+                    // date of Bairth field
+                    /////////////
+                    /// title row
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.cake_rounded,
+                          color: PRIMARY_COLOR,
+                          size: 19,
+                        ),
+                        SizedBox(width: 16),
+                        AppText(
+                          text: "تاريخ الميلاد",
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 11),
+                    // field
+                    AppTextField(
+                      hintText: "تاريخ الميلاد",
+                      initialValue: " 19 / 10 / 1999",
+                      obscure: false,
+                    ),
+                    const SizedBox(height: 19),
+                    /////////////
+                    // study level
+                    /////////////
+                    /// title row
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.school_rounded,
+                          color: PRIMARY_COLOR,
+                          size: 19,
+                        ),
+                        SizedBox(width: 16),
+                        AppText(
+                          text: "المستوى الدراسي",
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 11),
+                    // field
+                    AppTextField(
+                      hintText: "المستوى الدراسي",
+                      initialValue: "باكالوريوس",
+                      obscure: false,
+                    ),
+                    const SizedBox(height: 19),
+                    /////////////
+                    // national ID number
+                    /////////////
+                    /// title row
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.numbers,
+                          color: PRIMARY_COLOR,
+                          size: 19,
+                        ),
+                        SizedBox(width: 16),
+                        AppText(
+                          text: "رقم الهوية",
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 11),
+                    // field
+                    AppTextField(
+                      hintText: "رقم الهوية",
+                      initialValue: "909988987",
+                      obscure: false,
+                    ),
+                    const SizedBox(height: 19),
+                    /////////////
+                    // full address
+                    /////////////
+                    /// title row
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.person_rounded,
+                          color: PRIMARY_COLOR,
+                          size: 19,
+                        ),
+                        SizedBox(width: 16),
+                        AppText(
+                          text: "العنوان بالتفصيل",
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 11),
+                    // field
+                    AppTextField(
+                      hintText: "العنوان بالتفصيل",
+                      initialValue:
+                          "غزة - الرمال - شارع الشهداء - بجوار مسجد الشهداء",
+                      obscure: false,
+                    ),
+                    const SizedBox(height: 48),
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            width: (screenWidth - 40) * 0.55,
+                            child:
+                                FullColorButton(onPressed: () {}, text: "حفظ "),
+                          ),
+                          Expanded(child: Container()),
+                          Container(
+                            width: (screenWidth - 40) * 0.45,
+                            child:
+                                WhiteButtton(onPressed: () {}, text: "إلغاء "),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

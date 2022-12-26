@@ -121,19 +121,23 @@ class MyAccountBody extends StatefulWidget {
 class _MyAccountBodyState extends State<MyAccountBody> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Container(
+      height: MediaQuery.of(context).size.height - 108 - (screenWidth * 0.49),
       color: Colors.white,
-      child: Column(children: [
-        ClassInformation(
-          className: widget.className,
-          coTeacher: widget.coTeacher,
-          numberOfStudents: widget.numberOfStudents,
-        ),
-        const SizedBox(height: 40),
-        const SettingsTable(),
-        const SizedBox(height: 40),
-        const LogoutButton(),
-      ]),
+      child: SingleChildScrollView(
+        child: Column(children: [
+          ClassInformation(
+            className: widget.className,
+            coTeacher: widget.coTeacher,
+            numberOfStudents: widget.numberOfStudents,
+          ),
+          const SizedBox(height: 40),
+          const SettingsTable(),
+          const SizedBox(height: 40),
+          const LogoutButton(),
+        ]),
+      ),
     );
   }
 }

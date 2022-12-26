@@ -27,17 +27,15 @@ class _StudentAllAchievementsPageState
             opacity: 0.1,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [
-              SizedBox(height: 40),
-              AppTopBar(
-                title: "كل الإنجازات",
-              ),
-              SizedBox(height: 20),
-              StudentAchievementsBody(),
-            ],
-          ),
+        child: Column(
+          children: const [
+            SizedBox(height: 40),
+            AppTopBar(
+              title: "كل الإنجازات",
+            ),
+            SizedBox(height: 20),
+            StudentAchievementsBody(),
+          ],
         ),
       ),
     );

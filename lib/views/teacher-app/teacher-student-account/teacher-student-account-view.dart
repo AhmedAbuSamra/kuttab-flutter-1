@@ -16,7 +16,7 @@ class _TeacherStudentAccountPageState extends State<TeacherStudentAccountPage> {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        // height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           color: Color(0xFFf4f4f4),
           image: DecorationImage(
@@ -26,17 +26,15 @@ class _TeacherStudentAccountPageState extends State<TeacherStudentAccountPage> {
             opacity: 0.1,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [
-              SizedBox(height: 40),
-              AppTopBar(
-                title: 'حساب الطالب',
-              ),
-              SizedBox(height: 20),
-              StudentProfileBody(),
-            ],
-          ),
+        child: Column(
+          children: const [
+            SizedBox(height: 40),
+            AppTopBar(
+              title: 'حساب الطالب',
+            ),
+            SizedBox(height: 20),
+            StudentProfileBody(),
+          ],
         ),
       ),
     );
