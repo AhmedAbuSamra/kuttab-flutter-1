@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/componant/app-buttons.dart';
 import 'package:kuttab/views/componant/app-text.dart';
@@ -44,7 +45,12 @@ class _StudentAttendanceBodyState extends State<StudentAttendanceBody> {
             child: WhiteIconButtton(
               icon: Icon(Icons.notifications),
               text: 'إرسال تنبيه للغائبين',
-              onPressed: () {},
+              onPressed: () {
+                Get.snackbar(
+                  "تم",
+                  "تم إرسال التنبيهات",
+                );
+              },
             ),
           ),
           Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/componant/app-text.dart';
 
@@ -32,32 +33,38 @@ class _SettingPageBodyState extends State<SettingPageBody> {
           LanguageChoseTile(),
           const Divider(color: Colors.grey, thickness: 0),
           const SizedBox(height: 16),
-          const ListTile(
-            contentPadding: EdgeInsets.symmetric(horizontal: 24),
-            title: AppText(
-              text: "المساعدة",
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.grey,
-              size: 16,
+          InkWell(
+            onTap: () => Get.toNamed("/AboutPage", arguments: "helpPage"),
+            child: const ListTile(
+              contentPadding: EdgeInsets.symmetric(horizontal: 24),
+              title: AppText(
+                text: "المساعدة",
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.grey,
+                size: 16,
+              ),
             ),
           ),
           const Divider(color: Colors.grey, thickness: 0),
           const SizedBox(height: 16),
-          const ListTile(
-            contentPadding: EdgeInsets.symmetric(horizontal: 24),
-            title: AppText(
-              text: "الخصوصية",
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
-            trailing: Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.grey,
-              size: 16,
+          InkWell(
+            onTap: () => Get.toNamed("/AboutPage", arguments: "privacyPage"),
+            child: const ListTile(
+              contentPadding: EdgeInsets.symmetric(horizontal: 24),
+              title: AppText(
+                text: "الخصوصية",
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.grey,
+                size: 16,
+              ),
             ),
           ),
           const Divider(color: Colors.grey, thickness: 0),
