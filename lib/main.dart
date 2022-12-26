@@ -60,8 +60,8 @@ class MyApp extends StatelessWidget {
             name: '/StudentAttendancePage',
             page: () => const StudentAttendancePage()),
         GetPage(
-            name: '/StudentAccountPage',
-            page: () => const StudentAccountPage()),
+            name: '/StudentInformationPage',
+            page: () => const StudentInformationPage()),
         GetPage(
             name: '/NotificationsPage', page: () => const NotificationsPage())
       ],
