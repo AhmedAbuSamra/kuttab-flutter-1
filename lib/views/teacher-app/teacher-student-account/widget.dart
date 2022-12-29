@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/componant/app-buttons.dart';
+import 'package:kuttab/views/componant/app-text-field.dart';
 import 'package:kuttab/views/componant/app-text.dart';
 import 'package:kuttab/views/componant/one-day-achiviments-card.dart';
 
@@ -103,9 +104,384 @@ class _StudentProfileBodyState extends State<StudentProfileBody> {
           color: Colors.white,
         ),
         text: 'تسجيل إنجاز جديدة',
-        onPressed: () {},
+        onPressed: () {
+          showBottomSheet(
+            context: context,
+            builder: (context) {
+              return const NewRecordBottomSheet();
+            },
+          );
+        },
       ),
     );
+  }
+}
+
+class NewRecordBottomSheet extends StatefulWidget {
+  const NewRecordBottomSheet({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<NewRecordBottomSheet> createState() => _NewRecordBottomSheetState();
+}
+
+class _NewRecordBottomSheetState extends State<NewRecordBottomSheet> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black38,
+            blurRadius: 16,
+            offset: Offset(0, 5),
+          ),
+        ],
+      ),
+      height: MediaQuery.of(context).size.height * 0.75,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 16),
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: (() {
+                      Navigator.pop(context);
+                    }),
+                    child: Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle, color: GRAY_COLOR),
+                      height: 24,
+                      child: const Icon(
+                        Icons.close,
+                        size: 16,
+                      ),
+                    ),
+                  ),
+                  Expanded(child: Container()),
+                  const AppText(
+                    text: "تسجيل إنجاز جديد",
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  Expanded(child: Container()),
+                  const SizedBox(width: 24),
+                ],
+              ),
+            ),
+            const SizedBox(height: 40),
+            Row(
+              children: const [
+                SizedBox(width: 2),
+                Image(
+                  image: AssetImage('assets/images/verified-green.png'),
+                  height: 15,
+                  width: 15,
+                ),
+                SizedBox(width: 8),
+                AppText(
+                  text: "نوع الإنجاز",
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                )
+              ],
+            ),
+            const SizedBox(height: 11),
+            // field
+            AppTextField(
+              hintText: "اكتب نوع الإنجاز",
+              obscure: false,
+            ),
+            const SizedBox(height: 40),
+            Row(
+              children: [
+                Expanded(child: Container()),
+                const AppText(
+                  text: "من",
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+                const SizedBox(width: 8),
+                const Sorahpicker(),
+                const SizedBox(width: 8),
+                const Ayahpicker(),
+                Expanded(child: Container()),
+                const AppText(
+                  text: "إلى",
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+                const SizedBox(width: 8),
+                const Sorahpicker(),
+                const SizedBox(width: 8),
+                const Ayahpicker(),
+                Expanded(child: Container()),
+              ],
+            ),
+            const SizedBox(height: 40),
+            Row(
+              children: const [
+                SizedBox(width: 2),
+                Icon(
+                  Icons.star_rate_rounded,
+                  color: PRIMARY_COLOR,
+                  size: 20,
+                ),
+                SizedBox(width: 9),
+                AppText(
+                  text: "التقييم",
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                )
+              ],
+            ),
+            const SizedBox(height: 11),
+            RateField(rate: 2),
+            const SizedBox(height: 35),
+            Row(
+              children: const [
+                SizedBox(width: 2),
+                Icon(
+                  Icons.note_rounded,
+                  color: PRIMARY_COLOR,
+                  size: 20,
+                ),
+                SizedBox(width: 9),
+                AppText(
+                  text: "ملاحظات",
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                )
+              ],
+            ),
+            const SizedBox(height: 11),
+            AppTextField(
+              hintText: "اكتب ملاحظاتك",
+              obscure: false,
+            ),
+            const SizedBox(height: 35),
+            FullColorButton(
+              onPressed: (() {
+                Get.snackbar("تم تسجيل الإنجاز", "تم تسجيل الإنجاز بنجاح");
+                Navigator.pop(context);
+              }),
+              text: "تسجيل الإنجاز",
+            ),
+            const SizedBox(height: 24),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RateField extends StatefulWidget {
+  RateField({super.key, required this.rate});
+
+  int rate = 0;
+  @override
+  State<RateField> createState() => _RateFieldState();
+}
+
+class _RateFieldState extends State<RateField> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 48,
+      decoration: BoxDecoration(
+        border: Border.all(color: GRAY_COLOR),
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white,
+      ),
+      child: Row(
+        children: [
+          Expanded(child: Container()),
+          Expanded(child: Container()),
+          InkWell(
+            onTap: () {
+              setState(() {
+                widget.rate = 1;
+              });
+            },
+            child: RateStar(
+              selected: (widget.rate >= 1),
+            ),
+          ),
+          Expanded(child: Container()),
+          InkWell(
+            onTap: () {
+              setState(() {
+                widget.rate = 2;
+              });
+            },
+            child: RateStar(
+              selected: (widget.rate > 1),
+            ),
+          ),
+          Expanded(child: Container()),
+          InkWell(
+            onTap: () {
+              setState(() {
+                widget.rate = 3;
+              });
+            },
+            child: RateStar(
+              selected: (widget.rate > 2),
+            ),
+          ),
+          Expanded(child: Container()),
+          InkWell(
+            onTap: () {
+              setState(() {
+                widget.rate = 4;
+              });
+            },
+            child: RateStar(
+              selected: (widget.rate > 3),
+            ),
+          ),
+          Expanded(child: Container()),
+          InkWell(
+            onTap: () {
+              setState(() {
+                widget.rate = 5;
+              });
+            },
+            child: RateStar(
+              selected: (widget.rate > 4),
+            ),
+          ),
+          Expanded(child: Container()),
+          Expanded(child: Container()),
+        ],
+      ),
+    );
+  }
+}
+
+class RateStar extends StatefulWidget {
+  RateStar({super.key, required this.selected});
+  final bool selected;
+  @override
+  State<RateStar> createState() => _RateStarState();
+}
+
+class _RateStarState extends State<RateStar> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 17,
+      height: 17,
+      child: Image.asset(
+        (widget.selected)
+            ? 'assets/images/StarRate-selected.png'
+            : 'assets/images/StarRate-unselected.png',
+        width: 16,
+        height: 16,
+        fit: BoxFit.contain,
+      ),
+    );
+  }
+}
+
+class Ayahpicker extends StatefulWidget {
+  const Ayahpicker({super.key});
+
+  @override
+  State<Ayahpicker> createState() => _AyahpickerState();
+}
+
+class _AyahpickerState extends State<Ayahpicker> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 40,
+      height: 32,
+      decoration: BoxDecoration(
+        border: Border.all(color: GRAY_COLOR),
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white,
+      ),
+      child: Center(
+        child: AppText(
+          text: 102.toString(),
+          color: Colors.black,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+    );
+  }
+}
+
+class Sorahpicker extends StatefulWidget {
+  const Sorahpicker({super.key, this.sorahName});
+  final String? sorahName;
+  @override
+  State<Sorahpicker> createState() => _SorahpickerState();
+}
+
+class _SorahpickerState extends State<Sorahpicker> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return Container(
+              height: 300,
+              child: const SorahPickerDialog(),
+            );
+          },
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        height: 32,
+        decoration: BoxDecoration(
+          border: Border.all(color: PRIMARY_COLOR),
+          borderRadius: BorderRadius.circular(32),
+          color: Colors.white,
+        ),
+        child: Center(
+          child: AppText(
+            text: widget.sorahName ?? "سورة",
+            color: PRIMARY_COLOR,
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SorahPickerDialog extends StatefulWidget {
+  const SorahPickerDialog({super.key});
+
+  @override
+  State<SorahPickerDialog> createState() => _SorahPickerDialogState();
+}
+
+class _SorahPickerDialogState extends State<SorahPickerDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 
