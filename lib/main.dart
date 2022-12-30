@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
+import 'package:kuttab/Utils/routes/routes.dart';
 import 'package:kuttab/views/about-page/about-view.dart';
 import 'package:kuttab/views/login-page/login-view.dart';
 import 'package:kuttab/views/my-account-page/my-account-view.dart';
@@ -41,30 +42,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/LoginPage',
       home: const LoginPage(),
-      getPages: [
-        GetPage(name: '/LoginPage', page: () => const LoginPage()),
-        GetPage(name: '/SettingsPage', page: () => const SettingsPage()),
-        GetPage(name: '/AboutPage', page: () => const AboutPage()),
-        GetPage(name: '/TeacherHomepage', page: () => const TeacherHomePage()),
-        GetPage(
-            name: '/StudentAllAchievementsPage',
-            page: () => const StudentAllAchievementsPage()),
-        GetPage(
-            name: '/TeacherStudentAccountPage',
-            page: () => const TeacherStudentAccountPage()),
-        GetPage(name: '/MyAccountPage', page: () => const MyAccountPage()),
-        GetPage(
-            name: '/PersonalInformationPage',
-            page: () => const PersonalInformationPage()),
-        GetPage(
-            name: '/StudentAttendancePage',
-            page: () => const StudentAttendancePage()),
-        GetPage(
-            name: '/StudentInformationPage',
-            page: () => const StudentInformationPage()),
-        GetPage(
-            name: '/NotificationsPage', page: () => const NotificationsPage())
-      ],
+      getPages: Routes.pages,
       title: 'Wattan',
       theme: ThemeData(
         primarySwatch: WHITE_COLOR_MATERIAL,
