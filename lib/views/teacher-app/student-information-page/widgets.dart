@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kuttab/Utils/constants.dart';
+import 'package:kuttab/views/componant/app-buttons.dart';
 import 'package:kuttab/views/componant/app-text-field.dart';
 import 'package:kuttab/views/componant/app-text.dart';
 
@@ -13,6 +14,7 @@ class StudentInfoBudy extends StatefulWidget {
 class _StudentInfoBudyState extends State<StudentInfoBudy> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Expanded(
       child: Container(
         width: double.infinity,
@@ -172,6 +174,22 @@ class _StudentInfoBudyState extends State<StudentInfoBudy> {
                         initialValue:
                             "غزة - الرمال - شارع الشهداء - بجوار مسجد الشهداء",
                         obscure: false,
+                      ),
+                      const SizedBox(height: 32),
+                      Row(
+                        children: [
+                          Container(
+                            width: (screenWidth - 40) * 0.55,
+                            child:
+                                FullColorButton(onPressed: () {}, text: "حفظ "),
+                          ),
+                          Expanded(child: Container()),
+                          Container(
+                            width: (screenWidth - 40) * 0.45,
+                            child:
+                                WhiteButtton(onPressed: () {}, text: "إلغاء "),
+                          ),
+                        ],
                       ),
                     ],
                   ),
