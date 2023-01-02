@@ -7,11 +7,13 @@ class AppTextField extends StatefulWidget {
     Key? key,
     required this.hintText,
     this.initialValue,
+    this.maxLines,
     required this.obscure,
   }) : super(key: key);
 
   final String hintText;
   bool obscure, view = true;
+  int? maxLines = 1;
   @override
   State<AppTextField> createState() => _AppTextFieldState();
 }
@@ -20,6 +22,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: widget.maxLines,
       style: const TextStyle(
         fontSize: 12,
         fontFamily: 'URW-DIN-Arabic',
@@ -59,7 +62,7 @@ class _AppTextFieldState extends State<AppTextField> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.grey),
+          borderSide: const BorderSide(color: GRAY_COLOR),
           borderRadius: BorderRadius.circular(16.0),
         ),
       ),
