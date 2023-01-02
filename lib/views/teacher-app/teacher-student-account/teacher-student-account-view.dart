@@ -14,6 +14,7 @@ class _TeacherStudentAccountPageState extends State<TeacherStudentAccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: MediaQuery.of(context).size.width,
         // height: MediaQuery.of(context).size.height,

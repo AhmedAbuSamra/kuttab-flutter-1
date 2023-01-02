@@ -16,6 +16,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
     double screenWidth = MediaQuery.of(context).size.width;
     double bodyHeight = screenHeight - (screenWidth * 0.49) - 110;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
