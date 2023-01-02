@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/views/componant/app-buttons.dart';
+import 'package:kuttab/views/componant/app-droplist.dart';
 import 'package:kuttab/views/componant/app-text-field.dart';
 import 'package:kuttab/views/componant/app-text.dart';
+import 'package:kuttab/views/componant/ayah-picker.dart';
 import 'package:kuttab/views/componant/one-day-achiviments-card.dart';
+import 'package:kuttab/views/componant/stars-rate-field.dart';
+import 'package:kuttab/views/componant/surah-picker.dart';
 
 class StudentProfileBody extends StatefulWidget {
   const StudentProfileBody({Key? key}) : super(key: key);
@@ -127,8 +131,32 @@ class NewRecordBottomSheet extends StatefulWidget {
 }
 
 class _NewRecordBottomSheetState extends State<NewRecordBottomSheet> {
+  final List<DropdownMenuItem<String>> _recordsTypesList = const [
+    DropdownMenuItem(
+      value: "تسميع",
+      child: AppText(
+        text: "تسميع",
+        color: Colors.black,
+      ),
+    ),
+    DropdownMenuItem(
+      value: "مراجعة",
+      child: AppText(
+        text: "مراجعة",
+        color: Colors.black,
+      ),
+    ),
+    DropdownMenuItem(
+      value: "تلاوة",
+      child: AppText(
+        text: "تلاوة",
+        color: Colors.black,
+      ),
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
+    ScrollController _scrollController = ScrollController();
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       width: double.infinity,
@@ -145,6 +173,7 @@ class _NewRecordBottomSheetState extends State<NewRecordBottomSheet> {
       ),
       height: MediaQuery.of(context).size.height * 0.75,
       child: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             Container(
@@ -197,9 +226,8 @@ class _NewRecordBottomSheetState extends State<NewRecordBottomSheet> {
             ),
             const SizedBox(height: 11),
             // field
-            AppTextField(
-              hintText: "اكتب نوع الإنجاز",
-              obscure: false,
+            AppDopList(
+              items: _recordsTypesList,
             ),
             const SizedBox(height: 40),
             Row(
@@ -271,6 +299,7 @@ class _NewRecordBottomSheetState extends State<NewRecordBottomSheet> {
             AppTextField(
               hintText: "اكتب ملاحظاتك",
               obscure: false,
+              maxLines: 3,
             ),
             const SizedBox(height: 35),
             FullColorButton(
@@ -280,208 +309,13 @@ class _NewRecordBottomSheetState extends State<NewRecordBottomSheet> {
               }),
               text: "تسجيل الإنجاز",
             ),
-            const SizedBox(height: 24),
+            SizedBox(
+              height: 24 + MediaQuery.of(context).viewInsets.bottom,
+            ),
           ],
         ),
       ),
     );
-  }
-}
-
-class RateField extends StatefulWidget {
-  RateField({super.key, required this.rate});
-
-  int rate = 0;
-  @override
-  State<RateField> createState() => _RateFieldState();
-}
-
-class _RateFieldState extends State<RateField> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 48,
-      decoration: BoxDecoration(
-        border: Border.all(color: GRAY_COLOR),
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.white,
-      ),
-      child: Row(
-        children: [
-          Expanded(child: Container()),
-          Expanded(child: Container()),
-          InkWell(
-            onTap: () {
-              setState(() {
-                widget.rate = 1;
-              });
-            },
-            child: RateStar(
-              selected: (widget.rate >= 1),
-            ),
-          ),
-          Expanded(child: Container()),
-          InkWell(
-            onTap: () {
-              setState(() {
-                widget.rate = 2;
-              });
-            },
-            child: RateStar(
-              selected: (widget.rate > 1),
-            ),
-          ),
-          Expanded(child: Container()),
-          InkWell(
-            onTap: () {
-              setState(() {
-                widget.rate = 3;
-              });
-            },
-            child: RateStar(
-              selected: (widget.rate > 2),
-            ),
-          ),
-          Expanded(child: Container()),
-          InkWell(
-            onTap: () {
-              setState(() {
-                widget.rate = 4;
-              });
-            },
-            child: RateStar(
-              selected: (widget.rate > 3),
-            ),
-          ),
-          Expanded(child: Container()),
-          InkWell(
-            onTap: () {
-              setState(() {
-                widget.rate = 5;
-              });
-            },
-            child: RateStar(
-              selected: (widget.rate > 4),
-            ),
-          ),
-          Expanded(child: Container()),
-          Expanded(child: Container()),
-        ],
-      ),
-    );
-  }
-}
-
-class RateStar extends StatefulWidget {
-  RateStar({super.key, required this.selected});
-  final bool selected;
-  @override
-  State<RateStar> createState() => _RateStarState();
-}
-
-class _RateStarState extends State<RateStar> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 17,
-      height: 17,
-      child: Image.asset(
-        (widget.selected)
-            ? 'assets/images/StarRate-selected.png'
-            : 'assets/images/StarRate-unselected.png',
-        width: 16,
-        height: 16,
-        fit: BoxFit.contain,
-      ),
-    );
-  }
-}
-
-class Ayahpicker extends StatefulWidget {
-  const Ayahpicker({super.key});
-
-  @override
-  State<Ayahpicker> createState() => _AyahpickerState();
-}
-
-class _AyahpickerState extends State<Ayahpicker> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 40,
-      height: 32,
-      decoration: BoxDecoration(
-        border: Border.all(color: GRAY_COLOR),
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.white,
-      ),
-      child: Center(
-        child: AppText(
-          text: 102.toString(),
-          color: Colors.black,
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-    );
-  }
-}
-
-class Sorahpicker extends StatefulWidget {
-  const Sorahpicker({super.key, this.sorahName});
-  final String? sorahName;
-  @override
-  State<Sorahpicker> createState() => _SorahpickerState();
-}
-
-class _SorahpickerState extends State<Sorahpicker> {
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        showDialog(
-          context: context,
-          builder: (context) {
-            return Container(
-              height: 300,
-              child: const SorahPickerDialog(),
-            );
-          },
-        );
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        height: 32,
-        decoration: BoxDecoration(
-          border: Border.all(color: PRIMARY_COLOR),
-          borderRadius: BorderRadius.circular(32),
-          color: Colors.white,
-        ),
-        child: Center(
-          child: AppText(
-            text: widget.sorahName ?? "سورة",
-            color: PRIMARY_COLOR,
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class SorahPickerDialog extends StatefulWidget {
-  const SorahPickerDialog({super.key});
-
-  @override
-  State<SorahPickerDialog> createState() => _SorahPickerDialogState();
-}
-
-class _SorahPickerDialogState extends State<SorahPickerDialog> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
 
