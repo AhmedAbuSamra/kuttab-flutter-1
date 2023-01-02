@@ -1,21 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:kuttab/Utils/constants.dart';
 import 'package:kuttab/Utils/routes/routes.dart';
-import 'package:kuttab/views/about-page/about-view.dart';
 import 'package:kuttab/views/login-page/login-view.dart';
-import 'package:kuttab/views/my-account-page/my-account-view.dart';
-import 'package:kuttab/views/notifications-page/notifications-view.dart';
-import 'package:kuttab/views/personal-information-page/personal-information-view.dart';
-import 'package:kuttab/views/settings-page/settings-view.dart';
-import 'package:kuttab/views/teacher-app/student-all-achievements-page/student-all-achievements-view.dart';
-import 'package:kuttab/views/teacher-app/student-attendance-page/student-attendance-view.dart';
-import 'package:kuttab/views/teacher-app/student-information-page/student-information-view.dart';
-import 'package:kuttab/views/teacher-app/teacher-home-page/teacher-home-view.dart';
-import 'package:kuttab/views/teacher-app/teacher-student-account/teacher-student-account-view.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   // SystemChrome.setSystemUIOverlayStyle(
@@ -43,7 +31,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/LoginPage',
       home: const LoginPage(),
       getPages: Routes.pages,
-      title: 'Wattan',
+      title: 'Kuttab',
       theme: ThemeData(
         primarySwatch: WHITE_COLOR_MATERIAL,
       ),
