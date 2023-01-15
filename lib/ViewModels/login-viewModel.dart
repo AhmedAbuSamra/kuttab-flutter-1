@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:kuttab/models/login-data-model.dart';
 import 'package:kuttab/models/user-model.dart';
 import 'package:kuttab/repository/auth-repo.dart';
@@ -7,7 +8,7 @@ class LoginViewModel with ChangeNotifier {
   final authRepo = AuthRepository();
   LoginData data = LoginData();
 
-  setSchoolId(int value) {
+  setSchoolId(String value) {
     data.schoolId = value;
   }
 
@@ -34,14 +35,18 @@ class LoginViewModel with ChangeNotifier {
 
   Future<void> loginApi() async {
     setLoading(true);
-    authRepo.loginApi(loginDatatoJson()).then((value) async {
-      setLoading(false);
+    try {
+      authRepo.loginApi(loginDatatoJson()).then((value) async {
+        setLoading(false);
 
-      if (value == null) {
-        print("Error");
-      }
-      UserModel um = UserModel.fromJson(value);
-      print(um.token);
-    });
+        if (value == null) {
+          print("Error");
+        }
+        UserModel um = UserModel.fromJson(value);
+        print(um.token);
+      });
+    } catch (e) {
+      Get.snackbar("Error", "خطأ في البيانات");
+    }
   }
 }

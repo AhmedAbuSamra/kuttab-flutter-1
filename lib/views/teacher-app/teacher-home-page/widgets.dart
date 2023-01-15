@@ -246,8 +246,9 @@ class _TeacherHomeHeaderState extends State<TeacherHomeHeader> {
 }
 
 class TeacherHomeBody extends StatefulWidget {
-  const TeacherHomeBody({Key? key}) : super(key: key);
+  TeacherHomeBody({Key? key}) : super(key: key);
 
+  final _reasonController = TextEditingController();
   @override
   State<TeacherHomeBody> createState() => _TeacherHomeBodyState();
 }
@@ -285,7 +286,8 @@ class _TeacherHomeBodyState extends State<TeacherHomeBody> {
                     width: (MediaQuery.of(context).size.width - 40) * 0.45,
                     child: WhiteIconButtton(
                       onPressed: () {
-                        giveAbsencePermission(context);
+                        giveAbsencePermission(
+                            context, widget._reasonController);
                       },
                       icon: const Icon(Icons.add),
                       text: "إذن غياب",
@@ -478,7 +480,8 @@ class _TeacherHomeBodyState extends State<TeacherHomeBody> {
   }
 }
 
-Future<dynamic> giveAbsencePermission(BuildContext context) {
+Future<dynamic> giveAbsencePermission(
+    BuildContext context, TextEditingController reasonController) {
   return showDialog(
     context: context,
     builder: ((context) {
@@ -540,6 +543,7 @@ Future<dynamic> giveAbsencePermission(BuildContext context) {
             const SizedBox(height: 11),
             // field
             AppTextField(
+              controller: reasonController,
               hintText: "سبب الغياب",
               obscure: false,
             ),

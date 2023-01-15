@@ -14,7 +14,7 @@ class LoginData {
 
   String? username;
   String? password;
-  int? schoolId;
+  String? schoolId;
 
   factory LoginData.fromJson(Map<String, dynamic> json) => LoginData(
         username: json["username"],

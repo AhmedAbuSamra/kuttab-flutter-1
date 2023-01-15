@@ -29,13 +29,13 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Column(
-            children: const [
-              SizedBox(height: 50),
-              TopBar(
+            children: [
+              const SizedBox(height: 50),
+              const TopBar(
                 imgPath: "assets/images/personal-pic.png",
                 haveNotification: true,
               ),
-              TeacherHomeHeader(
+              const TeacherHomeHeader(
                 imgPath: "assets/images/Mosque-logo.png",
                 schoolName: "مركز الفاروق لتحفيظ القرآن الكريم",
                 schoolAddress: "غزة - النصر - مسجد الفاروق",

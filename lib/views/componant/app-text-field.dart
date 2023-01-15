@@ -6,6 +6,7 @@ class AppTextField extends StatefulWidget {
   AppTextField({
     Key? key,
     required this.hintText,
+    required this.controller,
     this.initialValue,
     this.maxLines,
     required this.obscure,
@@ -14,6 +15,7 @@ class AppTextField extends StatefulWidget {
   final String hintText;
   bool obscure, view = true;
   int? maxLines = 1;
+  TextEditingController controller;
   @override
   State<AppTextField> createState() => _AppTextFieldState();
 }
@@ -22,6 +24,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       maxLines: widget.maxLines,
       style: const TextStyle(
         fontSize: 12,

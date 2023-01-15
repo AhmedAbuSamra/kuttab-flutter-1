@@ -28,7 +28,7 @@ class _PersonalInformationPageState extends State<PersonalInformationPage> {
           ),
         ),
         child: Column(
-          children: const [
+          children: [
             SizedBox(height: 40),
             AppTopBar(
               title: "المعلومات الشخصية",

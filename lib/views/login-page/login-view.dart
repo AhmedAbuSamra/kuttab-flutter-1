@@ -17,6 +17,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final LoginViewModel loginViewModel = LoginViewModel();
+  final _userNameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _schoolIdController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 11),
                       child: AppTextField(
+                        controller: _schoolIdController,
                         hintText: 'ادخل رقم المدرسة',
                         obscure: false,
                       ),
@@ -105,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 11),
                       child: AppTextField(
+                        controller: _userNameController,
                         hintText: 'ادخل رقم المستخدم',
                         obscure: false,
                       ),
@@ -140,6 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 11),
                       child: AppTextField(
+                        controller: _passwordController,
                         hintText: 'ادخل كلمة المرور',
                         obscure: true,
                       ),
@@ -157,12 +163,11 @@ class _LoginPageState extends State<LoginPage> {
                         text: 'تسجيل الدخول',
                         onPressed: () {
                           Provider.of<LoginViewModel>(context, listen: false)
-                              .setSchoolId(1);
+                              .setSchoolId("1");
                           Provider.of<LoginViewModel>(context, listen: false)
-                              .setUsername("1");
+                              .setUsername("120230008");
                           Provider.of<LoginViewModel>(context, listen: false)
-                              .setPassword(" 1");
-
+                              .setPassword("password");
                           Provider.of<LoginViewModel>(context, listen: false)
                               .loginApi();
                         },

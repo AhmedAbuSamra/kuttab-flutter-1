@@ -112,7 +112,7 @@ class _StudentProfileBodyState extends State<StudentProfileBody> {
           showBottomSheet(
             context: context,
             builder: (context) {
-              return const NewRecordBottomSheet();
+              return NewRecordBottomSheet();
             },
           );
         },
@@ -122,10 +122,11 @@ class _StudentProfileBodyState extends State<StudentProfileBody> {
 }
 
 class NewRecordBottomSheet extends StatefulWidget {
-  const NewRecordBottomSheet({
+  NewRecordBottomSheet({
     Key? key,
   }) : super(key: key);
 
+  final _notesController = TextEditingController();
   @override
   State<NewRecordBottomSheet> createState() => _NewRecordBottomSheetState();
 }
@@ -297,6 +298,7 @@ class _NewRecordBottomSheetState extends State<NewRecordBottomSheet> {
             ),
             const SizedBox(height: 11),
             AppTextField(
+              controller: widget._notesController,
               hintText: "اكتب ملاحظاتك",
               obscure: false,
               maxLines: 3,

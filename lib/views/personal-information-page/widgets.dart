@@ -5,7 +5,12 @@ import 'package:kuttab/views/componant/app-text-field.dart';
 import 'package:kuttab/views/componant/app-text.dart';
 
 class PersonalInformationBody extends StatefulWidget {
-  const PersonalInformationBody({Key? key}) : super(key: key);
+  PersonalInformationBody({Key? key}) : super(key: key);
+  final _fullNameController = TextEditingController();
+  final _dateOfBirthController = TextEditingController();
+  final _nationalIdController = TextEditingController();
+  final _addressController = TextEditingController();
+  final _acadmicController = TextEditingController();
 
   @override
   State<PersonalInformationBody> createState() =>
@@ -63,6 +68,7 @@ class _PersonalInformationBodyState extends State<PersonalInformationBody> {
                     const SizedBox(height: 11),
                     // field
                     AppTextField(
+                      controller: widget._fullNameController,
                       hintText: "الاسم رباعي",
                       initialValue: "محمد أحمد سعيد عبدالحي",
                       obscure: false,
@@ -91,6 +97,7 @@ class _PersonalInformationBodyState extends State<PersonalInformationBody> {
                     const SizedBox(height: 11),
                     // field
                     AppTextField(
+                      controller: widget._dateOfBirthController,
                       hintText: "تاريخ الميلاد",
                       initialValue: " 19 / 10 / 1999",
                       obscure: false,
@@ -119,6 +126,7 @@ class _PersonalInformationBodyState extends State<PersonalInformationBody> {
                     const SizedBox(height: 11),
                     // field
                     AppTextField(
+                      controller: widget._acadmicController,
                       hintText: "المستوى الدراسي",
                       initialValue: "باكالوريوس",
                       obscure: false,
@@ -147,6 +155,7 @@ class _PersonalInformationBodyState extends State<PersonalInformationBody> {
                     const SizedBox(height: 11),
                     // field
                     AppTextField(
+                      controller: widget._nationalIdController,
                       hintText: "رقم الهوية",
                       initialValue: "909988987",
                       obscure: false,
@@ -175,6 +184,7 @@ class _PersonalInformationBodyState extends State<PersonalInformationBody> {
                     const SizedBox(height: 11),
                     // field
                     AppTextField(
+                      controller: widget._addressController,
                       hintText: "العنوان بالتفصيل",
                       initialValue:
                           "غزة - الرمال - شارع الشهداء - بجوار مسجد الشهداء",
